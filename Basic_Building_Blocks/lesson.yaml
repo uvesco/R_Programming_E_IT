@@ -7,21 +7,20 @@
   Version: 2.2.0
 
 - Class: text
-  Output: In this lesson, we will explore some basic building blocks of the R programming
-    language.
+  Output: In questa lezione esploreremo alcuni elementi di base del linguaggio di programmazione R.
 
 - Class: text
-  Output: If at any point you'd like more information on a particular topic related
-    to R, you can type help.start() at the prompt, which will open a menu of resources
-    (either within RStudio or your default web browser, depending on your setup).
-    Alternatively, a simple web search often yields the answer you're looking for.
+  Output: Se in qualsiasi momento si desiderano maggiori informazioni su un particolare argomento relativo a R, 
+    è possibile digitare help.start() al prompt, che aprirà un menu di risorse (all'interno di RStudio o del browser 
+    web predefinito, a seconda della configurazione).
+    In alternativa, una semplice ricerca sul web spesso fornisce la risposta che si sta cercando.
 
 - Class: cmd_question
-  Output: In its simplest form, R can be used as an interactive calculator. Type
-    5 + 7 and press Enter.
+  Output: Nella sua forma più semplice, R può essere usata come un a calcolatrice interattiva. Digita
+    5 + 7 e premi Invio.
   CorrectAnswer: 5 + 7
   AnswerTests: omnitest(correctExpr='5 + 7')
-  Hint: Type 5 + 7 and press Enter.
+  Hint: Digita 5 + 7 e premi invio.
 
 - Class: text
   Output: R simply prints the result of 12 by default. However, R is a programming
