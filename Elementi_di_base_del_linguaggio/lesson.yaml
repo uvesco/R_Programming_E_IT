@@ -82,71 +82,76 @@
     singolo numero è considerato un vettore di lunghezza uno.
 
 - Class: cmd_question
-  Output: The easiest way to create a vector is with the c() function, which stands
-    for 'concatenate' or 'combine'. To create a vector containing the numbers 1.1,
-    9, and 3.14, type c(1.1, 9, 3.14). Try it now and store the result in a variable
-    called z.
+  Output: 'Il modo più semplice per creare un vettore è utilizzare la funzione c(), 
+    che sta per ''concatenare'' o ''combinare''. Per creare un vettore contenente i 
+    numeri 1.1, 9 e 3.14, digita c(1.1, 9, 3.14). Prova ora a memorizzare il 
+    risultato in una variabile chiamata z. Questa è la prima funzione che utilizziamo. 
+    ATTENZIONE: il separatore decimale è il punto (.), mentre la virgola (,) separa 
+    gli argomenti delle funzioni. Il linguaggio R è case-sensitive.'
   CorrectAnswer: z <- c(1.1, 9, 3.14)
   AnswerTests: omnitest(correctExpr='z <- c(1.1, 9, 3.14)')
-  Hint: Inputting z <- c(1.1, 9, 3.14) will assign the vector (1.1, 9, 3.14) to a
-    new variable called z. Including single spaces after the commas in the vector
-    is not required, but helps make your code less cluttered and more readable.
+  Hint: 'Inserendo z <- c(1.1, 9, 3.14) assegnerai il vettore (1.1, 9, 3.14) a una 
+    nuova variabile chiamata z. Includere singoli spazi dopo le virgole nel vettore 
+    non è obbligatorio, ma aiuta a rendere il tuo codice meno confuso e più leggibile.
+    ATTENZIONE: il separatore decimale è il punto (.), mentre la virgola (,) separa 
+    gli argomenti delle funzioni. Il linguaggio R è case-sensitive.'
 
 - Class: cmd_question
-  Output: Anytime you have questions about a particular function, you can access R's
-    built-in help files via the `?` command. For example, if you want more information
-    on the c() function, type ?c without the parentheses that normally follow a function
-    name. Give it a try.
+  Output: Ogni volta che hai domande su una particolare funzione, puoi accedere 
+    ai file di aiuto integrati di R tramite il comando ?. Ad esempio, se desideri 
+    ulteriori informazioni sulla funzione c(), digita ?c senza le parentesi che 
+    normalmente seguono il nome di una funzione. Prova a farlo.
   CorrectAnswer: ?c
   AnswerTests: omnitest(correctExpr='?c')
-  Hint: Type ?c and press Enter. This will bring up the help file for the c() function.
+  Hint: Digita ?c e premi Invio. Questo aprirà il file di aiuto per la funzione c().
 
 - Class: cmd_question
-  Output: Type z to view its contents. Notice that there are no commas separating
-    the values in the output.
+  Output: Digita z per visualizzarne il contenuto. Nota che non ci sono virgole 
+    a separare i valori nell'output.
   CorrectAnswer: z
   AnswerTests: omnitest(correctExpr='z')
-  Hint: Type z and press Enter to view its contents.
+  Hint: Digita z e premi Invio per visualizzarne il contenuto.
 
 - Class: cmd_question
-  Output: You can combine vectors to make a new vector. Create a new vector that contains
-    z, 555, then z again in that order. Don't assign this vector to a new variable,
-    so that we can just see the result immediately.
+  Output: Puoi combinare vettori per creare un nuovo vettore. Crea un nuovo 
+    vettore che contiene z, 555 e poi z di nuovo in quest'ordine. Non assegnare 
+    questo vettore a una nuova variabile, così potremo vedere il risultato immediatamente.
   CorrectAnswer: c(z, 555, z)
   AnswerTests: omnitest(correctExpr='c(z, 555, z)')
-  Hint: Type c(z, 555, z). Don't create a new variable. We just want to view the result.
+  Hint: Digita c(z, 555, z). Non creare una nuova variabile. Vogliamo solo 
+    visualizzare il risultato.
 
 - Class: cmd_question
-  Output: 'Numeric vectors can be used in arithmetic expressions. Type the following
-    to see what happens: z * 2 + 100.'
+  Output: 'I vettori numerici possono essere utilizzati nelle espressioni 
+    aritmetiche. Digita quanto segue per vedere cosa succede: z * 2 + 100.'
   CorrectAnswer: z * 2 + 100
   AnswerTests: omnitest(correctExpr='z * 2 + 100')
-  Hint: Enter z * 2 + 100, without assigning the result to a variable. The `*` symbol
-    is used for multiplication and shares a key with the number 8 on many keyboards.
+  Hint: Inserisci z * 2 + 100, senza assegnare il risultato a una variabile. 
+    Il simbolo * viene utilizzato per la moltiplicazione.
 
 - Class: text
-  Output: First, R multiplied each of the three elements in z by 2. Then it added
-    100 to each element to get the result you see above.
-
+  Output: Prima, R ha moltiplicato ciascuno dei tre elementi in z per 2. Poi ha 
+    aggiunto 100 a ciascun elemento per ottenere il risultato che vedi sopra.
+    
 - Class: text
-  Output: Other common arithmetic operators are `+`, `-`, `/`, and `^` (where x^2
-    means 'x squared'). To take the square root, use the sqrt() function and to take
-    the absolute value, use the abs() function.
+  Output: Altri operatori aritmetici comuni sono +, -, / e ^ (dove x^2 significa 
+    'x al quadrato'). Per calcolare la radice quadrata, usa la funzione sqrt() e 
+    per calcolare il valore assoluto, usa la funzione abs().
 
 - Class: cmd_question
-  Output: Take the square root of z - 1 and assign it to a new variable called my_sqrt.
+  Output: Calcola la radice quadrata di z - 1 e assegnala a una nuova variabile chiamata mia_radice. 
   CorrectAnswer: my_sqrt <- sqrt(z - 1)
   AnswerTests: omnitest(correctExpr='my_sqrt <- sqrt(z - 1)')
-  Hint: Assign the result of sqrt(z - 1) to a variable called my_sqrt.
+  Hint: Assegna il risultato di sqrt(z - 1) a una variabile chiamata mia_radice.
 
 - Class: mult_question
-  Output: Before we view the contents of the my_sqrt variable, what do you think it
-    contains?
-  CorrectAnswer: a vector of length 3
-  AnswerChoices: a vector of length 3; a single number (i.e a vector of length 1);
-    a vector of length 0 (i.e. an empty vector)
-  AnswerTests: omnitest(correctVal='a vector of length 3')
-  Hint: 'Think about how R handled the other ''vectorized'' operations: element-by-element.'
+  Output: Prima di visualizzare il contenuto della variabile my_sqrt, cosa pensi 
+    che contenga?
+  CorrectAnswer: un vettore di lunghezza 3
+  AnswerChoices: un vettore di lunghezza 3; a singolo numero (un vettore di lunghezza 1);
+    un vettore di lunghezza 0 (un vettore vuoto)
+  AnswerTests: omnitest(correctVal='un vettore di lunghezza 3')
+  Hint: 'Pensa a come R ha gestito le altre operazioni "vettoriali": elemento per elemento.'
 
 - Class: cmd_question
   Output: Print the contents of my_sqrt.
