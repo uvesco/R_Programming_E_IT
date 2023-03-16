@@ -261,8 +261,8 @@
     automatico e può essere molto utile quando si hanno molte variabili 
     nell''area di lavoro. Provate. (Se il completamento automatico non funziona, 
     digitate mia_div e premete Invio).'
-  CorrectAnswer: my_div
-  AnswerTests: omnitest(correctExpr='my_div')
+  CorrectAnswer: mia_div
+  AnswerTests: omnitest(correctExpr='mia_div')
   Hint: Se il vostro ambiente di programmazione non supporta il completamento 
     automatico, digitate mia_div e premete Invio per andare avanti.
 

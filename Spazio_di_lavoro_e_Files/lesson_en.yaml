@@ -1,99 +1,99 @@
 - Class: meta
   Course: R Programming E
-  Lesson: Workspace and Files
+  Lesson: Spazio di lavoro e Files
   Author: David Kane
   Type: Standard
   Organization: Williams College
   Version: 0.1.2
 
 - Class: text
-  Output: "In this lesson, you'll learn how to examine your local workspace in R 
-    and begin to explore the relationship between your workspace and the file 
-    system of your machine."
+  Output: 'In questa lezione imparerete a esaminare il vostro spazio di lavoro 
+    locale in R e inizierete a esplorare la relazione tra lo spazio di lavoro e 
+    il file system della vostra macchina.'
 
 - Class: text
-  Output: "Because different operating systems have different conventions with 
-  regards to things like file paths, the outputs of these commands may vary 
-  across machines."
+  Output: "Poiché i diversi sistemi operativi hanno convenzioni diverse per 
+    quanto riguarda i percorsi dei file, i risultati di questi comandi possono 
+    variare da una macchina all'altra."
 
 - Class: text
-  Output: However it's important to note that R provides a common API (a common
-    set of commands) for interacting with files, that way your code will work
-    across different kinds of computers.
+  Output: Tuttavia, è importante notare che R fornisce un'API comune (un insieme 
+    comune di comandi) per interagire con i file, in modo che il codice funzioni
+    su diversi tipi di computer.
 
 - Class: text
-  Output: Let's jump right in so you can get a feel for how these special 
-    functions work!
+  Output: Facciamo un salto avanti per capire come funzionano queste funzioni 
+    speciali!
 
 - Class: cmd_question
-  Output: Determine which directory your R session is using as its current 
-    working directory using getwd().
+  Output: Determinate quale directory la vostra sessione R sta usando come 
+    directory di lavoro corrente usando getwd().
   CorrectAnswer: getwd()
   AnswerTests: omnitest(correctExpr='getwd()')
-  Hint: Type getwd() to determine the current working directory.
+  Hint: Digitare getwd() per determinare la directory di lavoro corrente.
 
 - Class: cmd_question
-  Output: List all the objects in your local workspace using ls().
+  Output: Elencare tutti gli oggetti presenti nell'area di lavoro locale 
+    utilizzando ls().
   CorrectAnswer: ls()
   AnswerTests: omnitest(correctExpr='ls()')
-  Hint: Type ls() to view all the objects in your local workspace.
+  Hint: Digitare ls() per visualizzare tutti gli oggetti presenti nell'area di 
+    lavoro locale.
 
 - Class: text
-  Output: Some R commands are the same as their equivalents commands on Linux or
-   on a Mac. Both Linux and Mac operating systems are based on an operating
-   system called Unix. It's always a good idea to learn more about Unix!
+  Output: Alcuni comandi di R sono identici a quelli equivalenti su Linux o Mac. 
+    Entrambi i sistemi operativi Linux e Mac sono basati su un sistema operativo 
+    chiamato Unix. È sempre una buona idea saperne di più su Unix!
 
 - Class: cmd_question
-  Output: Assign 9 to x using x <- 9.
+  Output: Assegnare 9 a x usando x <- 9.
   CorrectAnswer: x <- 9
   AnswerTests: omnitest(correctExpr='x <- 9')
-  Hint: Type x <- 9 to assign 9 to x.
+  Hint: Digitare x <- 9 per assegnare 9 a x.
 
 - Class: cmd_question
-  Output: Now take a look at objects that are in your workspace using ls().
+  Output: Ora date un'occhiata agli oggetti presenti nell'area di lavoro usando ls().
   CorrectAnswer: ls()
   AnswerTests: omnitest(correctExpr='ls()')
-  Hint: Type ls() to view all the objects in your workspace.
+  Hint: Digitare ls() per visualizzare tutti gli oggetti presenti nell'area di lavoro.
 
 - Class: cmd_question
-  Output: List all the files in your working directory using list.files() or 
-    dir().
+  Output: Elencare tutti i file presenti nella cartella di lavoro utilizzando 
+    list.files() o dir().
   CorrectAnswer: list.files()
   AnswerTests: any_of_exprs('list.files()', 'dir()')
-  Hint: Type list.files() to all the files in your working directory.
+  Hint: Digitare list.files() per tutti i file presenti nella directory di lavoro.
 
 - Class: cmd_question
-  Output: As we go through this lesson, you should be examining the help page 
-    for each new function. Check out the help page for list.files with the
-    command ?list.files.
+  Output: Nel corso di questa lezione, dovreste esaminare la pagina di aiuto per 
+    ogni nuova funzione. Consultate la pagina di aiuto di list.files con il 
+    comando ?list.files.
   CorrectAnswer: ?list.files
   AnswerTests: any_of_exprs('?list.files', '?dir', 'help("list.files")', 'help("dir")')
-  Hint: Type ?list.files to see the help page.
+  Hint: Digitare ?list.files per visualizzare la pagina di aiuto.
 
 - Class: text
-  Output: One of the most helpful parts of any R help file is the See Also 
-    section. Read that section for list.files. Some of these functions may be 
-    used in later portions of this lesson.
+  Output: Una delle parti più utili di qualsiasi file di aiuto di R è la sezione 
+    Vedi anche. Leggete questa sezione per list.files. Alcune di queste funzioni 
+    potranno essere utilizzate nelle parti successive di questa lezione.
 
 - Class: text
-  Output: Using the args() function on a function name is also a handy way to 
-    see what arguments a function can take. 
+  Output: L'uso della funzione args() sul nome di una funzione è anche un modo 
+    comodo per vedere quali argomenti può accettare una funzione. 
 
 
 - Class: cmd_question
-  Output: Use the args() function to determine the arguments to list.files().
+  Output: Utilizzare la funzione args() per determinare gli argomenti di list.files().
   CorrectAnswer: args(list.files)
   AnswerTests: omnitest(correctExpr='args(list.files)')
-  Hint: Type args(list.files) to see the arguments to list.files.
+  Hint: Digitare args(list.files) per vedere gli argomenti di list.files.
 
 
 - Class: cmd_question
-  Output: Assign the value of the current working directory to a variable 
-    called "old.dir".
+  Output: Assegnare il valore della directory di lavoro corrente a una variabile chiamata "old.dir".
   CorrectAnswer: old.dir <- getwd()
   AnswerTests: omnitest(correctExpr='old.dir <- getwd()')
-  Hint: Type old.dir <- getwd() to assign the value of the current working 
-    directory to a variable called "old.dir".
+  Hint: Digitare old.dir <- getwd() per assegnare il valore della directory di lavoro corrente a una variabile chiamata "old.dir".
 
 - Class: text
   Output: We will use old.dir at the end of this lesson to move back to the 
