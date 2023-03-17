@@ -90,14 +90,14 @@
     per ogni variabile/colonna. L'output sarebbe considerevolmente più compatto se
     potessimo rappresentarlo come un vettore invece che come una lista.
 - Class: cmd_question
-  Output: Potresti ricordare da una lezione precedente che gli elenchi sono molto
+  Output: Potresti ricordare da una lezione precedente che le liste sono molto
     utili per memorizzare più classi di dati. In questo caso, poiché ogni elemento
-    dell'elenco restituito da lapply() è un vettore di caratteri di lunghezza uno
+    della lista restituita da lapply() è un vettore di caratteri di lunghezza uno
     (ovvero "intero" e "vettore"), cls_list può essere semplificato in un vettore
     di caratteri. Per farlo manualmente, digita as.character(cls_list).
   CorrectAnswer: as.character(cls_list)
   AnswerTests: omnitest(correctExpr='as.character(cls_list)')
-  Hint: Digita as.character(cls_list) per costringere cls_list a un vettore di caratteri.
+  Hint: Digita as.character(cls_list) per forzare cls_list in un vettore di caratteri.
 - Class: cmd_question
   Output: sapply() ti consente di automatizzare questo processo chiamando lapply()
     dietro le quinte, ma poi tentando di semplificare (da qui la 's' in 'sapply')
@@ -141,8 +141,8 @@
     nel dataset.
 - Class: cmd_question
   Output: Innanzitutto, usa flag_colors <- flags[, 11:17] per estrarre le colonne
-    contenenti i dati sui colori e memorizzarle in un nuovo frame di dati chiamato
-    flag_colors. (Notare la virgola prima delle 11:17. Questo comando di sottoimpostazione
+    contenenti i dati sui colori e memorizzarle in un nuovo dataframe chiamato
+    flag_colors. (Notare la virgola prima di 11:17. Questo comando di sottoimpostazione
     dice a R che vogliamo tutte le righe, ma solo le colonne da 11 a 17.)
   CorrectAnswer: flag_colors <- flags[, 11:17]
   AnswerTests: omnitest(correctExpr='flag_colors <- flags[, 11:17]')

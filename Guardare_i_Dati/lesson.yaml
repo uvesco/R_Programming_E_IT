@@ -5,126 +5,158 @@
   Type: Standard
   Organization: JHU Biostat
   Version: 2.2.11
-
 - Class: text
-  Output: Whenever you're working with a new dataset, the first thing you should do is look at it! What is the format of the data? What are the dimensions? What are the variable names? How are the variables stored? Are there missing data? Are there any flaws in the data?
-
+  Output: Ogni volta che lavori con un nuovo set di dati, la prima cosa da fare è
+    guardarlo! Qual è il formato dei dati? Quali sono le dimensioni? Quali sono i
+    nomi delle variabili? Come vengono memorizzate le variabili? Ci sono dati mancanti?
+    Ci sono difetti nei dati?
 - Class: text
-  Output: This lesson will teach you how to answer these questions and more using R's built-in functions. We'll be using a dataset constructed from the United States Department of Agriculture's PLANTS Database (http://plants.usda.gov/adv_search.html).
-
+  Output: Questa lezione ti insegnerà come rispondere a queste domande e altro ancora
+    utilizzando le funzioni integrate di R. Useremo un set di dati costruito dal database
+    PLANTS del Dipartimento dell'agricoltura degli Stati Uniti (http://plants.usda.gov/adv_search.html).
 - Class: cmd_question
-  Output: I've stored the data for you in a variable called plants. Type ls() to list the variables in your workspace, among which should be plants.
+  Output: Ho memorizzato i dati per te in una variabile chiamata piante. Digita ls()
+    per elencare le variabili nel tuo spazio di lavoro, tra le quali dovrebbero esserci
+    le piante.
   CorrectAnswer: ls()
   AnswerTests: omnitest(correctExpr='ls()')
-  Hint: Use ls() to list the variables in your workspace.
-
+  Hint: Usa ls() per elencare le variabili nel tuo spazio di lavoro.
 - Class: cmd_question
-  Output: Let's begin by checking the class of the plants variable with class(plants). This will give us a clue as to the overall structure of the data.
+  Output: Cominciamo controllando la classe della variabile piante con class(plants).
+    Questo ci darà un indizio sulla struttura generale dei dati.
   CorrectAnswer: class(plants)
   AnswerTests: omnitest(correctExpr='class(plants)')
-  Hint: Use class(plants) to check the class of the plants variable.
-
+  Hint: Usa class(plants) per controllare la classe della variabile piante.
 - Class: text
-  Output: It's very common for data to be stored in a data frame. It is the default class for data read into R using functions like read.csv() and read.table(), which you'll learn about in another lesson.
-
+  Output: È molto comune che i dati vengano archiviati in un frame di dati. È la classe
+    predefinita per i dati letti in R usando funzioni come read.csv() e read.table(),
+    che imparerai in un'altra lezione.
 - Class: cmd_question
-  Output: Since the dataset is stored in a data frame, we know it is rectangular. In other words, it has two dimensions (rows and columns) and fits neatly into a table or spreadsheet. Use dim(plants) to see exactly how many rows and columns we're dealing with.
+  Output: Poiché il set di dati è memorizzato in un frame di dati, sappiamo che è
+    rettangolare. In altre parole, ha due dimensioni (righe e colonne) e si inserisce
+    perfettamente in una tabella o in un foglio di calcolo. Usa dim(plants) per vedere
+    esattamente con quante righe e colonne abbiamo a che fare.
   CorrectAnswer: dim(plants)
   AnswerTests: omnitest(correctExpr='dim(plants)')
-  Hint: Use dim(plants) to see the exact dimensions of the plants dataset.
-
+  Hint: Usa dim(plants) per vedere le dimensioni esatte del set di dati delle piante.
 - Class: text
-  Output: The first number you see (5166) is the number of rows (observations) and the second number (10) is the number of columns (variables). 
-
+  Output: Il primo numero che vedi (5166) è il numero di righe (osservazioni) e il
+    secondo numero (10) è il numero di colonne (variabili).
 - Class: cmd_question
-  Output: You can also use nrow(plants) to see only the number of rows. Try it out.
+  Output: Puoi anche usare nrow(plants) per vedere solo il numero di righe. Provalo.
   CorrectAnswer: nrow(plants)
   AnswerTests: omnitest(correctExpr='nrow(plants)')
-  Hint: Use nrow(plants) to see only the number of rows.
-
+  Hint: Usa nrow(plants) per vedere solo il numero di righe.
 - Class: cmd_question
-  Output: ... And ncol(plants) to see only the number of columns.
+  Output: '... E ncol(plants) per vedere solo il numero di colonne.'
   CorrectAnswer: ncol(plants)
   AnswerTests: omnitest(correctExpr='ncol(plants)')
-  Hint: Use ncol(plants) to see only the number of columns.
-
+  Hint: Usa ncol(plants) per vedere solo il numero di colonne.
 - Class: cmd_question
-  Output: If you are curious as to how much space the dataset is occupying in memory, you can use object.size(plants).
+  Output: Se sei curioso di sapere quanto spazio occupa il set di dati in memoria,
+    puoi utilizzare object.size(plants).
   CorrectAnswer: object.size(plants)
   AnswerTests: omnitest(correctExpr='object.size(plants)')
-  Hint: object.size(plants) will tell you how much memory is occupyed by the plants data frame.
-
+  Hint: object.size(plants) ti dirà quanta memoria è occupata dal data frame delle
+    piante.
 - Class: cmd_question
-  Output: Now that we have a sense of the shape and size of the dataset, let's get a feel for what's inside. names(plants) will return a character vector of column (i.e. variable) names. Give it a shot.
+  Output: Ora che abbiamo un'idea della forma e delle dimensioni del set di dati,
+    diamo un'idea di cosa c'è dentro. names(plants) restituirà un vettore di caratteri
+    di nomi di colonne (cioè variabili). Dagli Un colpo.
   CorrectAnswer: names(plants)
   AnswerTests: omnitest(correctExpr='names(plants)')
-  Hint: names(plants) will return a character vector of column (i.e. variable) names.
-
+  Hint: names(plants) restituirà un vettore di caratteri di nomi di colonne (cioè
+    variabili).
 - Class: text
-  Output: We've applied fairly descriptive variable names to this dataset, but that won't always be the case. A logical next step is to peek at the actual data. However, our dataset contains over 5000 observations (rows), so it's impractical to view the whole thing all at once.
-  
+  Output: Abbiamo applicato nomi di variabili abbastanza descrittivi a questo set
+    di dati, ma non sarà sempre così. Un passaggio logico successivo consiste nel
+    dare un'occhiata ai dati effettivi. Tuttavia, il nostro set di dati contiene oltre
+    5000 osservazioni (righe), quindi non è pratico visualizzare tutto in una volta.
 - Class: cmd_question
-  Output: The head() function allows you to preview the top of the dataset. Give it a try with only one argument.
+  Output: La funzione head() consente di visualizzare in anteprima la parte superiore
+    del set di dati. Fai un tentativo con un solo argomento.
   CorrectAnswer: head(plants)
   AnswerTests: omnitest(correctExpr='head(plants)')
-  Hint: head(plants) will show you the very top of the dataset.
-
+  Hint: head(plants) ti mostrerà la parte superiore del set di dati.
 - Class: text
-  Output: Take a minute to look through and understand the output above. Each row is labeled with the observation number and each column with the variable name. Your screen is probably not wide enough to view all 10 columns side-by-side, in which case R displays as many columns as it can on each line before continuing on the next.
-
+  Output: Prenditi un minuto per esaminare e comprendere l'output sopra. Ogni riga
+    è etichettata con il numero di osservazione e ogni colonna con il nome della variabile.
+    Probabilmente lo schermo non è abbastanza largo per visualizzare tutte e 10 le
+    colonne affiancate, nel qual caso R visualizza quante più colonne possibile su
+    ciascuna riga prima di continuare con quella successiva.
 - Class: cmd_question
-  Output: By default, head() shows you the first six rows of the data. You can alter this behavior by passing as a second argument the number of rows you'd like to view. Use head() to preview the first 10 rows of plants.
+  Output: Per impostazione predefinita, head() mostra le prime sei righe dei dati.
+    Puoi modificare questo comportamento passando come secondo argomento il numero
+    di righe che desideri visualizzare. Usa head() per vedere in anteprima le prime
+    10 file di piante.
   CorrectAnswer: head(plants, 10)
   AnswerTests: omnitest(correctExpr='head(plants, 10)')
-  Hint: head(plants, 10) will show you the first 10 rows of the dataset.
-
+  Hint: head(plants, 10) ti mostrerà le prime 10 righe del set di dati.
 - Class: cmd_question
-  Output: The same applies for using tail() to preview the end of the dataset. Use tail() to view the last 15 rows.
+  Output: Lo stesso vale per l'utilizzo di tail() per visualizzare in anteprima la
+    fine del set di dati. Usa tail() per visualizzare le ultime 15 righe.
   CorrectAnswer: tail(plants, 15)
   AnswerTests: omnitest(correctExpr='tail(plants, 15)')
-  Hint: tail(plants, 15) will show you the last 15 rows of the dataset.
-
+  Hint: tail(plants, 15) ti mostrerà le ultime 15 righe del set di dati.
 - Class: cmd_question
-  Output: After previewing the top and bottom of the data, you probably noticed lots of NAs, which are R's placeholders for missing values. Use summary(plants) to get a better feel for how each variable is distributed and how much of the dataset is missing.
+  Output: Dopo aver visualizzato in anteprima la parte superiore e inferiore dei dati,
+    probabilmente hai notato molti NA, che sono i segnaposto di R per i valori mancanti.
+    Usa il riepilogo (piante) per avere un'idea migliore di come ogni variabile è
+    distribuita e di quanta parte del set di dati manca.
   CorrectAnswer: summary(plants)
   AnswerTests: omnitest(correctExpr='summary(plants)')
-  Hint: Try summary(plants) to look at how each variable is distributed and how many missing values we are dealing with.
-
+  Hint: Prova il sommario (piante) per vedere come è distribuita ogni variabile e
+    con quanti valori mancanti abbiamo a che fare.
 - Class: text
-  Output: summary() provides different output for each variable, depending on its class. For numeric data such as Precip_Min, summary() displays the minimum, 1st quartile, median, mean, 3rd quartile, and maximum. These values help us understand how the data are distributed.
-
+  Output: summary() fornisce un output diverso per ogni variabile, a seconda della
+    sua classe. Per i dati numerici come Precip_Min, summary() visualizza il minimo,
+    il 1° quartile, la mediana, la media, il 3° quartile e il massimo. Questi valori
+    ci aiutano a capire come vengono distribuiti i dati.
 - Class: text
-  Output: For categorical variables (called 'factor' variables in R), summary() displays the number of times each value (or 'level') occurs in the data. For example, each value of Scientific_Name only appears once, since it is unique to a specific plant. In contrast, the summary for Duration (also a factor variable) tells us that our dataset contains 3031 Perennial plants, 682 Annual plants, etc.
-
+  Output: Per le variabili categoriali (chiamate variabili 'fattore' in R), summary()
+    mostra il numero di volte in cui ciascun valore (o 'livello') ricorre nei dati.
+    Ad esempio, ogni valore di Scientific_Name appare solo una volta, poiché è unico
+    per una pianta specifica. Al contrario, il riepilogo per Durata (anche una variabile
+    fattore) ci dice che il nostro set di dati contiene 3031 piante perenni, 682 piante
+    annuali, ecc.
 - Class: cmd_question
-  Output: You can see that R truncated the summary for Active_Growth_Period by including a catch-all category called 'Other'. Since it is a categorical/factor variable, we can see how many times each value actually occurs in the data with table(plants$Active_Growth_Period).
+  Output: Puoi vedere che R ha troncato il riepilogo per Active_Growth_Period includendo
+    una categoria generica chiamata "Altro". Poiché si tratta di una variabile categoriale/fattore,
+    possiamo vedere quante volte ciascun valore si verifica effettivamente nei dati
+    con table(plants$Active_Growth_Period).
   CorrectAnswer: table(plants$Active_Growth_Period)
   AnswerTests: omnitest(correctExpr='table(plants$Active_Growth_Period)')
-  Hint: table(plants$Active_Growth_Period) will display counts for each level of the factor variable.
-
+  Hint: table(plants$Active_Growth_Period) visualizzerà i conteggi per ogni livello
+    della variabile fattore.
 - Class: text
-  Output: Each of the functions we've introduced so far has its place in helping you to better understand the structure of your data. However, we've left the best for last....
-
+  Output: Ognuna delle funzioni che abbiamo introdotto finora ha il suo ruolo nell'aiutarti
+    a comprendere meglio la struttura dei tuoi dati. Tuttavia, abbiamo lasciato il
+    meglio per ultimo....
 - Class: cmd_question
-  Output: Perhaps the most useful and concise function for understanding the *str*ucture of your data is str(). Give it a try now.
+  Output: Forse la funzione più utile e concisa per comprendere la *struttura* dei
+    tuoi dati è str(). Fai un tentativo ora.
   CorrectAnswer: str(plants)
   AnswerTests: omnitest(correctExpr='str(plants)')
-  Hint: Use str(plants) to look at the structure of your data.
-
+  Hint: Usa str(plants) per osservare la struttura dei tuoi dati.
 - Class: text
-  Output: The beauty of str() is that it combines many of the features of the other functions you've already seen, all in a concise and readable format. At the very top, it tells us that the class of plants is 'data.frame' and that it has 5166 observations and 10 variables. It then gives us the name and class of each variable, as well as a preview of its contents.
-
+  Output: Il bello di str() è che combina molte delle caratteristiche delle altre
+    funzioni che hai già visto, il tutto in un formato conciso e leggibile. In cima,
+    ci dice che la classe delle piante è 'data.frame' e che ha 5166 osservazioni e
+    10 variabili. Ci fornisce quindi il nome e la classe di ciascuna variabile, nonché
+    un'anteprima del suo contenuto.
 - Class: text
-  Output: str() is actually a very general function that you can use on most objects in R. Any time you want to understand the structure of something (a dataset, function, etc.), str() is a good place to start.
-
+  Output: str() è in realtà una funzione molto generale che puoi usare sulla maggior
+    parte degli oggetti in R. Ogni volta che vuoi capire la struttura di qualcosa
+    (un set di dati, una funzione, ecc.), str() è un buon punto di partenza.
 - Class: text
-  Output: In this lesson, you learned how to get a feel for the structure and contents of a new dataset using a collection of simple and useful functions. Taking the time to do this upfront can save you time and frustration later on in your analysis.
-
+  Output: In questa lezione hai imparato a farti un'idea della struttura e dei contenuti
+    di un nuovo set di dati utilizzando una raccolta di funzioni semplici e utili.
+    Prendersi il tempo per farlo in anticipo può farti risparmiare tempo e frustrazione
+    in seguito nella tua analisi.
 - Class: mult_question
-  Output: Would you like to inform someone about your successful completion of 
-    this lesson via email?
-  CorrectAnswer: NULL
+  Output: Vuoi informare qualcuno del completamento con successo di questa lezione
+    via e-mail?
+  CorrectAnswer: ~
   AnswerChoices: Yes; No
   AnswerTests: notify()
-  Hint: NULL
-  
+  Hint: ~

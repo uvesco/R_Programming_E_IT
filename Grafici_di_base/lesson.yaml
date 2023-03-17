@@ -5,211 +5,241 @@
   Type: Standard
   Organization: Williams College
   Version: 0.1.1
-
 - Class: text
-  Output: One of the greatest strengths of R, relative to other programming languages, is the ease with which we can create publication-quality graphics. In this lesson, you'll learn about base graphics in R. 
-
+  Output: Uno dei maggiori punti di forza di R, rispetto ad altri linguaggi di programmazione,
+    è la facilità con cui possiamo creare grafica di qualità da pubblicazione. In
+    questa lezione imparerai la grafica di base in R.
 - Class: text
-  Output: We do not cover the more advanced portions of graphics in R in this lesson. These include lattice, ggplot2 and ggvis.
-
+  Output: In questa lezione non trattiamo le parti più avanzate della grafica in R.
+    Questi includono reticolo, ggplot2 e ggvis.
 - Class: text
-  Output: There is a school of thought that this approach is backwards, that we should teach ggplot2 first. See http://varianceexplained.org/r/teach_ggplot2_to_beginners/ for an outline of this view.
-
+  Output: C'è una scuola di pensiero secondo cui questo approccio è all'indietro,
+    che dovremmo prima insegnare a ggplot2. Vedi http://varianceexplained.org/r/teach_ggplot2_to_beginners/
+    per uno schema di questa visione.
 - Class: cmd_question
-  Output: Load the included data frame cars with data(cars).
+  Output: Carica le auto del frame di dati incluse con i dati (auto).
   CorrectAnswer: data(cars)
   AnswerTests: omnitest(correctExpr='data(cars)')
-  Hint: Type data(cars) to load the data.
-
+  Hint: Digitare data(cars) per caricare i dati.
 - Class: text
-  Output: To fix ideas, we will work with simple data frames. Our main goal is to introduce various plotting functions and their arguments. All the output would look more interesting with larger, more complex data sets.
-
+  Output: Per fissare le idee, lavoreremo con semplici frame di dati. Il nostro obiettivo
+    principale è introdurre varie funzioni di plottaggio e i loro argomenti. Tutto
+    l'output sembrerebbe più interessante con set di dati più grandi e complessi.
 - Class: cmd_question
-  Output: Pull up the help page for cars.
+  Output: Apri la pagina di aiuto per le auto.
   CorrectAnswer: ?cars
   AnswerTests: any_of_exprs('?cars', 'help(cars)', 'help("plot")')
-  Hint: Type ?cars or help(cars) to view a help page with details on the car data frame.
-
+  Hint: Digita ?cars o help(cars) per visualizzare una pagina di aiuto con i dettagli
+    sul data frame dell'auto.
 - Class: text
-  Output: "As you can see in the help page, the cars data set has only two variables: speed and stopping distance. Note that the data is from the 1920s."
-
+  Output: 'Come puoi vedere nella pagina di aiuto, il set di dati delle auto ha solo
+    due variabili: velocità e distanza di arresto. Si noti che i dati risalgono agli
+    anni ''20.'
 - Class: cmd_question
-  Output: Run head() on the cars data.
+  Output: Esegui head() sui dati delle auto.
   CorrectAnswer: head(cars)
   AnswerTests: omnitest(correctExpr='head(cars)')
-  Hint: Type head(cars) to see the top of the cars data frame.
-
+  Hint: Digita head(cars) per vedere la parte superiore del data frame delle auto.
 - Class: text
-  Output: Before plotting, it is always a good idea to get a sense of the data. Key R commands for doing so include, dim(), names(), head(), tail() and summary().
-
+  Output: Prima di tracciare, è sempre una buona idea avere un'idea dei dati. I comandi
+    chiave R per farlo includono, dim(), names(), head(), tail() e summary().
 - Class: cmd_question
-  Output: Run the plot() command on the cars data frame. 
+  Output: Esegui il comando plot() sul data frame dell'auto.
   CorrectAnswer: plot(cars)
   AnswerTests: omnitest(correctExpr='plot(cars)')
-  Hint: Type plot(cars) to create a plot of the cars data frame.
-
+  Hint: Digita plot(cars) per creare un grafico del data frame delle auto.
 - Class: text
-  Output: As always, R tries very hard to give you something sensible given the information that you have provided to it. First, R notes that the data frame you have given it has just two columns, so it assumes that you want to plot one column versus the other.
-
+  Output: Come sempre, R si sforza molto di darti qualcosa di sensato date le informazioni
+    che gli hai fornito. Innanzitutto, R nota che il frame di dati che gli hai fornito
+    ha solo due colonne, quindi presuppone che tu voglia tracciare una colonna rispetto
+    all'altra.
 - Class: text
-  Output: Second, since we do not provide labels for either axis, R uses the names of the columns. Third, it creates axis tick marks at nice round numbers and labels them accordingly. Fourth, it uses the other defaults supplied in plot().
-
+  Output: In secondo luogo, poiché non forniamo etichette per nessuno degli assi,
+    R usa i nomi delle colonne. In terzo luogo, crea segni di graduazione dell'asse
+    su bei numeri tondi e li etichetta di conseguenza. In quarto luogo, utilizza gli
+    altri valori predefiniti forniti in plot().
 - Class: text
-  Output: We will now spend some time exploring plot, but many of the topics covered here will apply to most other R graphics functions. Note that 'plot' is short for scatterplot.
-
+  Output: Dedicheremo ora un po' di tempo all'esplorazione della trama, ma molti degli
+    argomenti qui trattati si applicheranno alla maggior parte delle altre funzioni
+    grafiche R. Si noti che "plot" è l'abbreviazione di scatterplot.
 - Class: cmd_question
-  Output: Look up the help page for plot(). 
+  Output: Cerca la pagina di aiuto per plot().
   CorrectAnswer: ?plot
   AnswerTests: any_of_exprs('?plot', 'help(plot)')
-  Hint: Type ?plot or help(plot) to view a help page for plot().
-
+  Hint: Digita ?plot o help(plot) per visualizzare una pagina di aiuto per plot().
 - Class: text
-  Output: The help page for plot() highlights the different arguments that the function can take. The two most important are x and y, the variables that will be plotted. For the next set of questions, include the argument names in your answers. That is, do not type plot(cars$speed, cars$dist), although that will work. Instead, use plot(x = cars$speed, y = cars$dist).
-
+  Output: La pagina di aiuto per plot() evidenzia i diversi argomenti che la funzione
+    può accettare. Le due più importanti sono x e y, le variabili che verranno tracciate.
+    Per la prossima serie di domande, includi i nomi degli argomenti nelle tue risposte.
+    Cioè, non digitare plot(cars$speed, cars$dist), anche se funzionerà. Invece, usa
+    plot(x = cars$speed, y = cars$dist).
 - Class: cmd_question
-  Output: Use plot() command to show speed on the x-axis and dist on the y-axis from the cars data frame. Use the form of the plot command in which vectors are explicitly passed in as arguments for x and y.
+  Output: Usa il comando plot() per mostrare la velocità sull'asse x e la distanza
+    sull'asse y dal data frame dell'auto. Utilizzare la forma del comando plot in
+    cui i vettori vengono esplicitamente passati come argomenti per x e y.
   CorrectAnswer: plot(x = cars$speed, y = cars$dist)
   AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist)')
-  Hint: Type plot(x = cars$speed, y = cars$dist) to create the plot.
-
+  Hint: Digita plot(x = cars$speed, y = cars$dist) per creare il grafico.
 - Class: text
-  Output: Note that this produces a slightly different answer than plot(cars). In this case, R is not sure what you want to use as the labels on the axes, so it just uses the arguments which you pass in, data frame name and dollar signs included.
-
+  Output: Nota che questo produce una risposta leggermente diversa da plot(cars).
+    In questo caso, R non è sicuro di cosa si desidera utilizzare come etichette sugli
+    assi, quindi utilizza solo gli argomenti che si passano, il nome del frame di
+    dati e i simboli del dollaro inclusi.
 - Class: text
-  Output: Note that there are other ways to call the plot command, i.e., using the "formula" interface. For example, we get a similar plot to the above with plot(dist ~ speed, cars). However, we will wait till later in the lesson before using the formula interface.
-  
+  Output: Nota che ci sono altri modi per chiamare il comando plot, cioè usando l'interfaccia
+    "formula". Ad esempio, otteniamo un grafico simile al precedente con plot(dist
+    ~ speed, cars). Tuttavia, aspetteremo più avanti nella lezione prima di utilizzare
+    l'interfaccia della formula.
 - Class: cmd_question
-  Output: Use plot() command to show dist on the x-axis and speed on the y-axis from the cars data frame. This is the opposite of what we did above.
+  Output: Usa il comando plot() per mostrare la distanza sull'asse x e la velocità
+    sull'asse y dal data frame dell'auto. Questo è l'opposto di quello che abbiamo
+    fatto sopra.
   CorrectAnswer: plot(x = cars$dist, y = cars$speed)
   AnswerTests: omnitest(correctExpr='plot(x = cars$dist, y = cars$speed)')
-  Hint: Type plot(x = cars$dist, y = cars$speed) to create the plot.
-
+  Hint: Digita plot(x = cars$dist, y = cars$speed) per creare il grafico.
 - Class: text
-  Output: It probably makes more sense for speed to go on the x-axis since stopping distance is a function of speed more than the other way around. So, for the rest of the questions in this portion of the lesson, always assign the arguments accordingly.
-
+  Output: Probabilmente ha più senso che la velocità vada sull'asse x poiché la distanza
+    di arresto è una funzione della velocità più che il contrario. Quindi, per il
+    resto delle domande in questa parte della lezione, assegna sempre gli argomenti
+    di conseguenza.
 - Class: text
-  Output: In fact, you can assume that the answers to the next few questions are all of the form plot(x = cars$speed, y = cars$dist, ...) but with various arguments used in place of the ...
-
+  Output: Infatti, puoi presumere che le risposte alle prossime domande siano tutte
+    nella forma plot(x = cars$speed, y = cars$dist, ...) ma con vari argomenti usati
+    al posto del ...
 - Class: cmd_question
-  Output: Recreate the plot with the label of the x-axis set to "Speed". 
+  Output: Ricrea il grafico con l'etichetta dell'asse x impostata su "Velocità".
   CorrectAnswer: plot(x = cars$speed, y = cars$dist, xlab = "Speed")
   AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, xlab = "Speed")')
-  Hint: Type plot(x = cars$speed, y = cars$dist, xlab = "Speed") to create the plot.
-
+  Hint: Digita plot(x = cars$speed, y = cars$dist, xlab = "Speed") per creare il grafico.
 - Class: cmd_question
-  Output: Recreate the plot with the label of the y-axis set to "Stopping Distance". 
+  Output: Ricrea il grafico con l'etichetta dell'asse y impostata su "Distanza di
+    arresto".
   CorrectAnswer: plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance")
-  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance")')
-  Hint: Type plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance") to create the plot.
-
+  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, ylab = "Stopping
+    Distance")')
+  Hint: Digita plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance") per
+    creare il grafico.
 - Class: cmd_question
-  Output: Recreate the plot with "Speed" and "Stopping Distance" as axis labels. 
-  CorrectAnswer: plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance")
-  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance")')
-  Hint: Type plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance") to create the plot.
-
+  Output: Ricrea il grafico con "Velocità" e "Distanza di arresto" come etichette
+    degli assi.
+  CorrectAnswer: plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping
+    Distance")
+  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, xlab = "Speed",
+    ylab = "Stopping Distance")')
+  Hint: Digita plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping
+    Distance") per creare il grafico.
 - Class: text
-  Output: The reason that plots(cars) worked at the beginning of the lesson was that R was smart enough to know that the first element (i.e., the first column) in cars should be assigned to the x argument and the second element to the y argument. To save on typing, the next set of answers will all be of the form, plot(cars, ...) with various arguments added.
-
+  Output: Il motivo per cui plots(cars) funzionava all'inizio della lezione era che
+    R era abbastanza intelligente da sapere che il primo elemento (cioè la prima colonna)
+    in cars doveva essere assegnato all'argomento x e il secondo elemento all'argomento
+    y . Per risparmiare sulla digitazione, la prossima serie di risposte sarà tutta
+    nella forma, trama (automobili, ...) con vari argomenti aggiunti.
 - Class: text
-  Output: For each question, we will only want one additional argument at a time. Of course, you can pass in more than one argument when doing a real project.
-
+  Output: Per ogni domanda, vorremo solo un argomento aggiuntivo alla volta. Naturalmente,
+    puoi passare più di un argomento quando fai un vero progetto.
 - Class: cmd_question
-  Output: Plot cars with a main title of "My Plot". Note that the argument for the main title is "main" not "title".
+  Output: Traccia auto con un titolo principale di "My Plot". Si noti che l'argomento
+    per il titolo principale è "principale" e non "titolo".
   CorrectAnswer: plot(cars, main = "My Plot")
   AnswerTests: omnitest(correctExpr='plot(cars, main = "My Plot")')
-  Hint: Type plot(cars, main = "My Plot") to create the plot.
-
+  Hint: Digita plot(cars, main = "My Plot") per creare la trama.
 - Class: cmd_question
-  Output: Plot cars with a sub title of "My Plot Subtitle".
+  Output: Traccia le auto con un sottotitolo di "My Plot Subtitle".
   CorrectAnswer: plot(cars, sub = "My Plot Subtitle")
   AnswerTests: omnitest(correctExpr='plot(cars, sub = "My Plot Subtitle")')
-  Hint: Type plot(cars, sub = "My Plot Subtitle") to create the plot.
-
+  Hint: Digita plot(cars, sub = "My Plot Subtitle") per creare la trama.
 - Class: text
-  Output: The plot help page (?plot) only covers a small number of the many arguments that can be passed in to plot() and to other graphical functions. To begin to explore the many other options, look at ?par. Let's look at some of the more commonly used ones. Continue using plot(cars, ...) as the base answer to these questions.
-
+  Output: La pagina della guida alla trama (?plot) copre solo un piccolo numero dei
+    numerosi argomenti che possono essere passati a plot() e ad altre funzioni grafiche.
+    Per iniziare a esplorare le molte altre opzioni, guarda ?par. Diamo un'occhiata
+    ad alcuni di quelli più comunemente usati. Continua a usare plot(cars, ...) come
+    risposta di base a queste domande.
 - Class: cmd_question
-  Output: Plot cars so that the plotted points are colored red. (Use col = 2 to achieve this effect.)
+  Output: Traccia le auto in modo che i punti tracciati siano colorati di rosso. (Usa
+    col = 2 per ottenere questo effetto.)
   CorrectAnswer: plot(cars, col = 2)
   AnswerTests: omnitest(correctExpr='plot(cars, col = 2)')
-  Hint: Type plot(cars, col = 2) to create the plot.
-
+  Hint: Digita plot(cars, col = 2) per creare il grafico.
 - Class: cmd_question
-  Output: Plot cars while limiting the x-axis to 10 through 15.  (Use xlim = c(10, 15) to achieve this effect.) 
+  Output: Traccia le auto limitando l'asse x da 10 a 15. (Usa xlim = c(10, 15) per
+    ottenere questo effetto.)
   CorrectAnswer: plot(cars, xlim = c(10, 15))
   AnswerTests: omnitest(correctExpr='plot(cars, xlim = c(10, 15))')
-  Hint: Type plot(cars, xlim = c(10, 15)) to create the plot.
-
+  Hint: Digita plot(cars, xlim = c(10, 15)) per creare il grafico.
 - Class: text
-  Output: You can also change the shape of the symbols in the plot. The help page for points (?points) provides the details.
-
+  Output: Puoi anche cambiare la forma dei simboli nella trama. La pagina della guida
+    per i punti (?points) fornisce i dettagli.
 - Class: cmd_question
-  Output: Plot cars using triangles.  (Use pch = 2 to achieve this effect.) 
+  Output: Traccia le auto usando i triangoli. (Usa pch = 2 per ottenere questo effetto.)
   CorrectAnswer: plot(cars, pch = 2)
   AnswerTests: omnitest(correctExpr='plot(cars, pch = 2)')
-  Hint: Type plot(cars, pch = 2) to create the plot.
-
+  Hint: Digita plot(cars, pch = 2) per creare il grafico.
 - Class: text
-  Output: Arguments like "col" and "pch" may not seem very intuitive. And that is because they aren't! So, many/most people use more modern packages, like ggplot2, for creating their graphics in R.
-
+  Output: Argomenti come "col" e "pch" potrebbero non sembrare molto intuitivi. E
+    questo perché non lo sono! Quindi, molte/la maggior parte delle persone usa pacchetti
+    più moderni, come ggplot2, per creare la propria grafica in R.
 - Class: text
-  Output: It is, however, useful to have an introduction to base graphics because many of the idioms in lattice and ggplot2 are modeled on them.
-
+  Output: È, tuttavia, utile avere un'introduzione alla grafica di base perché molti
+    degli idiomi in reticolo e ggplot2 sono modellati su di essi.
 - Class: text
-  Output: Let's now look at some other functions in base graphics that may be useful, starting with boxplots.
-
+  Output: Diamo ora un'occhiata ad alcune altre funzioni nella grafica di base che
+    possono essere utili, a partire dai boxplot.
 - Class: cmd_question
-  Output: Load the mtcars data frame. 
+  Output: Carica il data frame mtcars.
   CorrectAnswer: data(mtcars)
   AnswerTests: omnitest(correctExpr='data(mtcars)')
-  Hint: Type data(mtcars) to load the data.
-
+  Hint: Digitare data(mtcars) per caricare i dati.
 - Class: text
-  Output: Anytime that you load up a new data frame, you should explore it before using it. In the middle of a swirl lesson, just type play(). This temporarily suspends the lesson (without losing the work you have already done) and allows you to issue commands like dim(mtcars) and head(mtcars). Once you are done examining the data, just type nxt() and the lesson will pick up where it left off.
-
+  Output: Ogni volta che carichi un nuovo frame di dati, dovresti esplorarlo prima
+    di usarlo. Nel bel mezzo di una lezione di swirl, basta digitare play(). Questo
+    sospende temporaneamente la lezione (senza perdere il lavoro che hai già fatto)
+    e ti permette di impartire comandi come dim(mtcars) e head(mtcars). Una volta
+    che hai finito di esaminare i dati, digita semplicemente nxt() e la lezione riprenderà
+    da dove era stata interrotta.
 - Class: cmd_question
-  Output: Look up the help page for boxplot(). 
+  Output: Cerca la pagina di aiuto per boxplot().
   CorrectAnswer: ?boxplot
   AnswerTests: any_of_exprs('?boxplot', 'help(boxplot)')
-  Hint: Type ?boxplot or help(boxplot) to view a help page with details about boxplot.
-
+  Hint: Digita ?boxplot o help(boxplot) per visualizzare una pagina di aiuto con i
+    dettagli sul boxplot.
 - Class: text
-  Output: Instead of adding data columns directly as input arguments, as we did with plot(), it is often handy to pass in the entire data frame. This is what the "data" argument in boxplot() allows.
-
+  Output: Invece di aggiungere colonne di dati direttamente come argomenti di input,
+    come abbiamo fatto con plot(), è spesso utile passare l'intero frame di dati.
+    Questo è ciò che consente l'argomento "data" in boxplot().
 - Class: text
-  Output: boxplot(), like many R functions, also takes a "formula" argument, generally an expression with a tilde ("~") which indicates the relationship between the input variables. This allows you to enter something like mpg ~ cyl to plot the relationship between cyl (number of cylinders) on the x-axis and mpg (miles per gallon) on the y-axis.
-
+  Output: boxplot(), come molte funzioni R, accetta anche un argomento "formula",
+    generalmente un'espressione con una tilde ("~") che indica la relazione tra le
+    variabili di input. Ciò consente di inserire qualcosa come mpg ~ cyl per tracciare
+    la relazione tra cyl (numero di cilindri) sull'asse x e mpg (miglia per gallone)
+    sull'asse y.
 - Class: cmd_question
-  Output: Use boxplot() with formula = mpg ~ cyl and data = mtcars to create a box plot.
+  Output: Usa boxplot() con formula = mpg ~ cyl e data = mtcars per creare un box
+    plot.
   CorrectAnswer: boxplot(formula = mpg ~ cyl, data = mtcars)
   AnswerTests: omnitest(correctExpr='boxplot(formula = mpg ~ cyl, data = mtcars)')
-  Hint: Type boxplot(formula = mpg ~ cyl, data = mtcars) to create the plot.
-
+  Hint: Digita boxplot(formula = mpg ~ cyl, data = mtcars) per creare il grafico.
 - Class: text
-  Output: The plot shows that mpg is much lower for cars with more cylinders. Note that we can use the same set of arguments that we explored with plot() above to add axis labels, titles and so on.
-
+  Output: Il grafico mostra che mpg è molto più basso per le auto con più cilindri.
+    Nota che possiamo usare lo stesso insieme di argomenti che abbiamo esplorato con
+    plot() sopra per aggiungere etichette di assi, titoli e così via.
 - Class: text
-  Output: When looking at a single variable, histograms are a useful tool. hist() is the associated R function. Like plot(), hist() is best used by just passing in a single vector. 
-
+  Output: Quando si osserva una singola variabile, gli istogrammi sono uno strumento
+    utile. hist() è la funzione R associata. Come plot(), hist() è usato al meglio
+    semplicemente passando un singolo vettore.
 - Class: cmd_question
-  Output: Use hist() with the vector mtcars$mpg to create a histogram.
+  Output: Usa hist() con il vettore mtcars$mpg per creare un istogramma.
   CorrectAnswer: hist(mtcars$mpg)
   AnswerTests: any_of_exprs('hist(mtcars$mpg)', 'hist(x = mtcars$mpg)')
-  Hint: Type hist(mtcars$mpg) to create the plot.
-
-# Not sure what a good lesson length is for this. 
-# Might add some information on saving plots.
-# Other functions that I use include identify().
-
+  Hint: Digita hist(mtcars$mpg) per creare il grafico.
 - Class: text
-  Output: In this lesson, you learned how to work with base graphics in R. The best place to go from here is to study the ggplot2 package. If you want to explore other elements of base graphics, then this web page (http://www.ling.upenn.edu/~joseff/rstudy/week4.html) provides a useful overview.
-
+  Output: In questa lezione, hai imparato a lavorare con la grafica di base in R.
+    Il posto migliore dove andare da qui è studiare il pacchetto ggplot2. Se vuoi
+    esplorare altri elementi della grafica di base, allora questa pagina web (http://www.ling.upenn.edu/~joseff/rstudy/week4.html)
+    fornisce un'utile panoramica.
 - Class: mult_question
-  Output: Would you like to inform someone about your successful completion of 
-    this lesson via email?
-  CorrectAnswer: NULL
+  Output: Vuoi informare qualcuno del completamento con successo di questa lezione
+    via e-mail?
+  CorrectAnswer: ~
   AnswerChoices: Yes; No
   AnswerTests: notify()
-  Hint: NULL
-  
+  Hint: ~
