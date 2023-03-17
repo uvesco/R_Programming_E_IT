@@ -1,37 +1,37 @@
-# Let me show you an example of a function I'm going to make up called
-# increment(). Most of the time I want to use this function to increase the
-# value of a number by one. This function will take two arguments: "number" and
-# "by" where "number" is the digit I want to increment and "by" is the amount I
-# want to increment "number" by. I've written the function below. 
-#
-# increment <- function(number, by = 1){
-#     number + by
-# }
-#
-# If you take a look in between the parentheses you can see that I've set
-# "by" equal to 1. This means that the "by" argument will have the default
-# value of 1.
-#
-# I can now use the increment function without providing a value for "by": 
-# increment(5) will evaluate to 6. 
-#
-# However if I want to provide a value for the "by" argument I still can! The
-# expression: increment(5, 2) will evaluate to 7. 
+# Lascia che ti mostri un esempio di una funzione che mi inventerò chiamato
+# incremento(). Il più delle volte voglio usare questa funzione per aumentare il
+# valore di un numero per uno. Questa funzione richiederà due argomenti: "numero" e
+# "per" dove "il numero" è la cifra che voglio incrementare e "per" è l'importo i
+# vuoi incrementare il "numero" di. Ho scritto la funzione di seguito.
 # 
-# You're going to write a function called "remainder." remainder() will take
-# two arguments: "num" and "divisor" where "num" is divided by "divisor" and
-# the remainder is returned. Imagine that you usually want to know the remainder
-# when you divide by 2, so set the default value of "divisor" to 2. Please be
-# sure that "num" is the first argument and "divisor" is the second argument.
-#
-# Hint #1: You can use the modulus operator %% to find the remainder.
-#   Ex: 7 %% 4 evaluates to 3. 
-#
-# Remember to set appropriate default values! Be sure to save this 
-# script and type submit() in the console after you write the function.
+# incremento <- function(numero, di = 1) {
+#      numero + di
+# }
+# 
+# Se dai un'occhiata tra le parentesi puoi vedere che ho impostato
+# "di" uguale a 1. Ciò significa che l'argomento "per" avrà di default
+# il valore di 1.
+# 
+# Ora posso usare la funzione di incremento senza fornire un valore per "di":
+# incremento(5) restituirà 6.
+# 
+# Tuttavia, se voglio fornire un valore per l'argomento "di" che posso ancora! 
+# L'espressione: incremento(5, 2) restituirà 7.
+# 
+# Scrivi una funzione chiamata "remainder" (resto in inglese). remainder() chiederà
+# due argomenti: "num" (numero) e "divisor" (divisore) in cui "num" è diviso per "divisor" e
+# il resto viene restituito. Immagina di voler di solito conoscere il resto
+# Quando si dividi per 2, quindi imposta il valore predefinito di "divisor" su 2.
+# Assicurati che "num" sia il primo argomento e "divisor" il secondo argomento.
+# 
+# Suggerimento n. 1: è possibile utilizzare l'operatore del modulo %% per trovare il resto.
+# Es: 7 %% 4 restituisce 3.
+# 
+# Ricorda di impostare valori predefiniti appropriati! Assicurati di salvare lo
+# script e digita submit() nella console dopo aver scritto la funzione.
 
 remainder <- function(num, divisor = 2) {
-  # Write your code here!
-  # Remember: the last expression evaluated will be returned! 
+  # Scrivi qui il tuo codice!
+  # Ricorda: sarà restituita l'ultima espressione elaborata 
   num %% divisor
 }

@@ -1,29 +1,28 @@
-# The syntax for creating new binary operators in R is unlike anything else in
-# R, but it allows you to define a new syntax for your function. I would only
-# recommend making your own binary operator if you plan on using it often!
-#
-# User-defined binary operators have the following syntax:
-#      %[whatever]% 
-# where [whatever] represents any valid variable name.
+# La sintassi per la creazione di nuovi operatori binari in R è diversa da qualsiasi altra cosa in
+# R, ma ti consente di definire una nuova sintassi per la tua funzione. Il consiglio
+# è di di creare il tuo operatore binario solo se hai intenzione di usarlo spesso!
+#   
+#   Gli operatori binari definiti dall'utente hanno la seguente sintassi:
+#       %[Qualunque cosa]%
+# dove [qualunque cosa] rappresenta qualsiasi nome variabile valido.
 # 
-# Let's say I wanted to define a binary operator that multiplied two numbers and
-# then added one to the product. An implementation of that operator is below:
-#
-# "%mult_add_one%" <- function(left, right){ # Notice the quotation marks!
+# Supponiamo che io volessi definire un operatore binario che ha moltiplicasse due numeri e
+# aggiungesse uno al prodotto. Un'implementazione di quell'operatore è questa di seguito:
+# 
+# "%mult_add_one%" <- function(left, right){ # Notare le virgolette!
 #   left * right + 1
 # }
-#
-# I could then use this binary operator like `4 %mult_add_one% 5` which would
-# evaluate to 21.
-#
-# Write your own binary operator below from absolute scratch! Your binary
-# operator must be called %p% so that the expression:
-#
-#       "Good" %p% "job!"
-#
-# will evaluate to: "Good job!"
+# 
+# Potrei quindi usare questo operatore binario come `4 %mult_add_one% 5` e darebbe 21.
+# 
+# Scrivi il tuo operatore binario di seguito da zero! Il tuo operatore binario deve 
+# essere chiamato %p% in modo che l'espressione:
+# 
+#        "Buon" %p% "lavoro!"
+# 
+# Darà: "Buon lavoro!"
 
-"%p%" <- function(){ # Remember to add arguments!
+"%p%" <- function(){ # Ricorda di aggiungere gli agomenti!
   
 }
 

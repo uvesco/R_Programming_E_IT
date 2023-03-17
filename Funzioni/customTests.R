@@ -1,6 +1,6 @@
 test_func1 <- function() {
   try({
-    func <- get('boring_function', globalenv())
+    func <- get('noiosa_funzione', globalenv())
     t1 <- identical(func(9), 9)
     t2 <- identical(func(4), 4)
     t3 <- identical(func(0), 0)
@@ -11,7 +11,7 @@ test_func1 <- function() {
 
 test_func2 <- function() {
   try({
-    func <- get('my_mean', globalenv())
+    func <- get('mia_media', globalenv())
     t1 <- identical(func(9), mean(9))
     t2 <- identical(func(1:10), mean(1:10))
     t3 <- identical(func(c(-5, -2, 4, 10)), mean(c(-5, -2, 4, 10)))
@@ -45,7 +45,7 @@ test_func4 <- function() {
 test_func5 <- function() {
   try({
     func <- get('telegram', globalenv())
-    t1 <- identical(func("Good", "morning"), "START Good morning STOP")
+    t1 <- identical(func("Buon", "giorno"), "START Buon giorno STOP")
     t2 <- identical(func("hello", "there", "sir"), "START hello there sir STOP")
     t3 <- identical(func(), "START STOP")
     ok <- all(t1, t2, t3)

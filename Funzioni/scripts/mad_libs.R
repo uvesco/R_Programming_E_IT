@@ -1,37 +1,38 @@
-# Let's explore how to "unpack" arguments from an ellipses when you use the
-# ellipses as an argument in a function. Below I have an example function that
-# is supposed to add two explicitly named arguments called alpha and beta.
+# Esploriamo come "spacchettare" gli argomenti dai puntini quando usi i puntini
+# come argomento in una funzione. Di seguito abbiamo una funzione di esempio che
+# dovrebbe aggiungere due argomenti esplicitamente chiamati chiamati Alpha e Beta.
 # 
 # add_alpha_and_beta <- function(...){
-#   # First we must capture the ellipsis inside of a list
-#   # and then assign the list to a variable. Let's name this
-#   # variable `args`.
-#
-#   args <- list(...)
-#
-#   # We're now going to assume that there are two named arguments within args
-#   # with the names `alpha` and `beta.` We can extract named arguments from
-#   # the args list by using the name of the argument and double brackets. The
-#   # `args` variable is just a regular list after all!
+#   # Innanzitutto dobbiamo catturare i puntini all'interno di una lista
+#   # e quindi assegnare la lista a una variabile. Chiamiamo questa
+#   # variabile `args`.
 #   
+#   args <- list(...)
+# 
+# 
+# # Ora supponiamo che ci siano due argomenti nominati all'interno di args
+# # con i nomi `alpha` e `beta`. Possiamo estrarre gli argomenti nominati
+# # dalla lista args usando il nome dell'argomento e le doppie parentesi. 
+# # La variabile `args` è solo una normale lista dopo tutto!
+# 
 #   alpha <- args[["alpha"]]
 #   beta  <- args[["beta"]]
-#
-#   # Then we return the sum of alpha and beta.
-#
-#   alpha + beta 
+#   
+#                
+# # Quindi otteniamo la somma di alpha e beta.
+#                
+#   alpha + beta
 # }
-#
-# Have you ever played Mad Libs before? The function below will construct a
-# sentence from parts of speech that you provide as arguments. We'll write most
-# of the function, but you'll need to unpack the appropriate arguments from the
-# ellipses.
+# 
+# Hai mai giocato a Mad Libs finora? (un gioco di parole inventato nel 1958 NdT) 
+# La funzione seguente costruirà una frase da parti da parti del discorso che fornirai
+# come argomenti. Scriveremo di più della funzione, ma dovrai spacchettare gli argomenti 
+# appropriati dai puntini.
 
 mad_libs <- function(...){
-  # Do your argument unpacking here!
+  # Spacchetta gli argomenti qui!
   
-  # Don't modify any code below this comment.
-  # Notice the variables you'll need to create in order for the code below to
-  # be functional!
+  # Non modificare nessun codice sotto questo commento.
+  # Fai attenzione alle variabili che dovrai creare perché il codice qui sotto funzioni!
   paste("News from", place, "today where", adjective, "students took to the streets in protest of the new", noun, "being installed on campus.")
 }

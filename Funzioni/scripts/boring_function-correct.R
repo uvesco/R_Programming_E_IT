@@ -1,3 +1,3 @@
-boring_function <- function(x) {
+noiosa_funzione <- function(x) {
   x
 }
