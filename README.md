@@ -1,6 +1,6 @@
 # R Programming with Email Notification (Italian version)
 
-Traduzione di Umberto Vesco per l'utilizzo in aula.
+Traduzione in Italiano.
 
 ## Installazione
 
@@ -12,4 +12,4 @@ swirl()
 
 ## Help
 
-Vedere http://swirlstats.com/, aprire un ticket.
+Vedere http://swirlstats.com/, aprire una issue.
