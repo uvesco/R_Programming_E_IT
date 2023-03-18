@@ -15,30 +15,30 @@
     utilizzando le funzioni integrate di R. Useremo un set di dati costruito dal database
     PLANTS del Dipartimento dell'agricoltura degli Stati Uniti (http://plants.usda.gov/adv_search.html).
 - Class: cmd_question
-  Output: Ho memorizzato i dati per te in una variabile chiamata piante. Digita ls()
-    per elencare le variabili nel tuo spazio di lavoro, tra le quali dovrebbero esserci
-    le piante.
+  Output: Ho memorizzato i dati per te in una variabile chiamata plants. Digita ls()
+    per elencare le variabili nel tuo spazio di lavoro, tra le quali dovrebbe esserci
+    plants.
   CorrectAnswer: ls()
   AnswerTests: omnitest(correctExpr='ls()')
   Hint: Usa ls() per elencare le variabili nel tuo spazio di lavoro.
 - Class: cmd_question
-  Output: Cominciamo controllando la classe della variabile piante con class(plants).
+  Output: Cominciamo controllando la classe della variabile plants con class(plants).
     Questo ci darà un indizio sulla struttura generale dei dati.
   CorrectAnswer: class(plants)
   AnswerTests: omnitest(correctExpr='class(plants)')
-  Hint: Usa class(plants) per controllare la classe della variabile piante.
+  Hint: Usa class(plants) per controllare la classe della variabile plants.
 - Class: text
-  Output: È molto comune che i dati vengano archiviati in un frame di dati. È la classe
+  Output: È molto comune che i dati vengano archiviati in un data frame. È la classe
     predefinita per i dati letti in R usando funzioni come read.csv() e read.table(),
     che imparerai in un'altra lezione.
 - Class: cmd_question
-  Output: Poiché il set di dati è memorizzato in un frame di dati, sappiamo che è
+  Output: Poiché il set di dati è memorizzato in un data frame, sappiamo che è
     rettangolare. In altre parole, ha due dimensioni (righe e colonne) e si inserisce
     perfettamente in una tabella o in un foglio di calcolo. Usa dim(plants) per vedere
     esattamente con quante righe e colonne abbiamo a che fare.
   CorrectAnswer: dim(plants)
   AnswerTests: omnitest(correctExpr='dim(plants)')
-  Hint: Usa dim(plants) per vedere le dimensioni esatte del set di dati delle piante.
+  Hint: Usa dim(plants) per vedere le dimensioni esatte del data.frame plants.
 - Class: text
   Output: Il primo numero che vedi (5166) è il numero di righe (osservazioni) e il
     secondo numero (10) è il numero di colonne (variabili).
@@ -57,12 +57,11 @@
     puoi utilizzare object.size(plants).
   CorrectAnswer: object.size(plants)
   AnswerTests: omnitest(correctExpr='object.size(plants)')
-  Hint: object.size(plants) ti dirà quanta memoria è occupata dal data frame delle
-    piante.
+  Hint: object.size(plants) ti dirà quanta memoria è occupata dal data frame plants.
 - Class: cmd_question
   Output: Ora che abbiamo un'idea della forma e delle dimensioni del set di dati,
     diamo un'idea di cosa c'è dentro. names(plants) restituirà un vettore di caratteri
-    di nomi di colonne (cioè variabili). Dagli Un colpo.
+    di nomi di colonne (cioè variabili). Prova.
   CorrectAnswer: names(plants)
   AnswerTests: omnitest(correctExpr='names(plants)')
   Hint: names(plants) restituirà un vettore di caratteri di nomi di colonne (cioè
@@ -88,7 +87,7 @@
   Output: Per impostazione predefinita, head() mostra le prime sei righe dei dati.
     Puoi modificare questo comportamento passando come secondo argomento il numero
     di righe che desideri visualizzare. Usa head() per vedere in anteprima le prime
-    10 file di piante.
+    10 righe (record) di plants.
   CorrectAnswer: head(plants, 10)
   AnswerTests: omnitest(correctExpr='head(plants, 10)')
   Hint: head(plants, 10) ti mostrerà le prime 10 righe del set di dati.
@@ -101,11 +100,11 @@
 - Class: cmd_question
   Output: Dopo aver visualizzato in anteprima la parte superiore e inferiore dei dati,
     probabilmente hai notato molti NA, che sono i segnaposto di R per i valori mancanti.
-    Usa il riepilogo (piante) per avere un'idea migliore di come ogni variabile è
+    Usa il riepilogo summary(plants) per avere un'idea migliore di come ogni variabile è
     distribuita e di quanta parte del set di dati manca.
   CorrectAnswer: summary(plants)
   AnswerTests: omnitest(correctExpr='summary(plants)')
-  Hint: Prova il sommario (piante) per vedere come è distribuita ogni variabile e
+  Hint: Prova il summary(plants) per vedere come è distribuita ogni variabile e
     con quanti valori mancanti abbiamo a che fare.
 - Class: text
   Output: summary() fornisce un output diverso per ogni variabile, a seconda della
@@ -113,11 +112,11 @@
     il 1° quartile, la mediana, la media, il 3° quartile e il massimo. Questi valori
     ci aiutano a capire come vengono distribuiti i dati.
 - Class: text
-  Output: Per le variabili categoriali (chiamate variabili 'fattore' in R), summary()
+  Output: Per le variabili categoriche (chiamate variabili 'factor' in R), summary()
     mostra il numero di volte in cui ciascun valore (o 'livello') ricorre nei dati.
     Ad esempio, ogni valore di Scientific_Name appare solo una volta, poiché è unico
-    per una pianta specifica. Al contrario, il riepilogo per Durata (anche una variabile
-    fattore) ci dice che il nostro set di dati contiene 3031 piante perenni, 682 piante
+    per una pianta specifica. Al contrario, il riepilogo per Duration (anche una variabile
+    factor) ci dice che il nostro set di dati contiene 3031 piante perenni, 682 piante
     annuali, ecc.
 - Class: cmd_question
   Output: Puoi vedere che R ha troncato il riepilogo per Active_Growth_Period includendo
@@ -141,7 +140,7 @@
 - Class: text
   Output: Il bello di str() è che combina molte delle caratteristiche delle altre
     funzioni che hai già visto, il tutto in un formato conciso e leggibile. In cima,
-    ci dice che la classe delle piante è 'data.frame' e che ha 5166 osservazioni e
+    ci dice che la classe di plants è 'data.frame' e che ha 5166 osservazioni e
     10 variabili. Ci fornisce quindi il nome e la classe di ciascuna variabile, nonché
     un'anteprima del suo contenuto.
 - Class: text

@@ -7,61 +7,61 @@
   Version: 0.1.1
 - Class: text
   Output: Uno dei maggiori punti di forza di R, rispetto ad altri linguaggi di programmazione,
-    è la facilità con cui possiamo creare grafica di qualità da pubblicazione. In
+    è la facilità con cui possiamo creare grafici di qualità da pubblicare. In
     questa lezione imparerai la grafica di base in R.
 - Class: text
-  Output: In questa lezione non trattiamo le parti più avanzate della grafica in R.
-    Questi includono reticolo, ggplot2 e ggvis.
+  Output: In questa lezione non trattiamo le tecniche più avanzate di grafica in R.
+    Queste includono lattice, ggplot2 e ggvis.
 - Class: text
-  Output: C'è una scuola di pensiero secondo cui questo approccio è all'indietro,
-    che dovremmo prima insegnare a ggplot2. Vedi http://varianceexplained.org/r/teach_ggplot2_to_beginners/
-    per uno schema di questa visione.
+  Output: C'è una scuola di pensiero secondo cui questo approccio è retrò,
+    e dovremmo prima insegnare ggplot2. Vedi http://varianceexplained.org/r/teach_ggplot2_to_beginners/
+    per questo approccio.
 - Class: cmd_question
-  Output: Carica le auto del frame di dati incluse con i dati (auto).
+  Output: Carica il dataframe cars incluso con data(cars).
   CorrectAnswer: data(cars)
   AnswerTests: omnitest(correctExpr='data(cars)')
   Hint: Digitare data(cars) per caricare i dati.
 - Class: text
-  Output: Per fissare le idee, lavoreremo con semplici frame di dati. Il nostro obiettivo
-    principale è introdurre varie funzioni di plottaggio e i loro argomenti. Tutto
-    l'output sembrerebbe più interessante con set di dati più grandi e complessi.
+  Output: Per trattare i concetti, lavoreremo con dataframe semplici. Il nostro obiettivo
+    principale è introdurre varie funzioni di grafica e i loro argomenti. L'output 
+    sarà poi più interessante con set di dati più grandi e complessi.
 - Class: cmd_question
-  Output: Apri la pagina di aiuto per le auto.
+  Output: Apri la pagina di aiuto per il dataset cars incluso in R.
   CorrectAnswer: ?cars
   AnswerTests: any_of_exprs('?cars', 'help(cars)', 'help("plot")')
   Hint: Digita ?cars o help(cars) per visualizzare una pagina di aiuto con i dettagli
-    sul data frame dell'auto.
+    sul dataframe cars.
 - Class: text
-  Output: 'Come puoi vedere nella pagina di aiuto, il set di dati delle auto ha solo
+  Output: 'Come puoi vedere nella pagina di aiuto, il dataset cars ha solo
     due variabili: velocità e distanza di arresto. Si noti che i dati risalgono agli
     anni ''20.'
 - Class: cmd_question
-  Output: Esegui head() sui dati delle auto.
+  Output: Esegui head() sui dati cars.
   CorrectAnswer: head(cars)
   AnswerTests: omnitest(correctExpr='head(cars)')
-  Hint: Digita head(cars) per vedere la parte superiore del data frame delle auto.
+  Hint: Digita head(cars) per vedere la parte superiore del dataframe delle auto.
 - Class: text
-  Output: Prima di tracciare, è sempre una buona idea avere un'idea dei dati. I comandi
-    chiave R per farlo includono, dim(), names(), head(), tail() e summary().
+  Output: Prima di plottare, è sempre bene farsi un'idea dei dati. I comandi
+    chiave R per farlo includono dim(), names(), head(), tail() e summary().
 - Class: cmd_question
-  Output: Esegui il comando plot() sul data frame dell'auto.
+  Output: Esegui il comando plot() sul data frame cars.
   CorrectAnswer: plot(cars)
   AnswerTests: omnitest(correctExpr='plot(cars)')
-  Hint: Digita plot(cars) per creare un grafico del data frame delle auto.
+  Hint: Digita plot(cars) per creare un grafico del dataframe delle auto.
 - Class: text
-  Output: Come sempre, R si sforza molto di darti qualcosa di sensato date le informazioni
-    che gli hai fornito. Innanzitutto, R nota che il frame di dati che gli hai fornito
-    ha solo due colonne, quindi presuppone che tu voglia tracciare una colonna rispetto
-    all'altra.
+  Output: Come sempre, R tenta di restituire qualcosa di sensato con le informazioni
+    che gli hai fornito. Innanzitutto, R nota che il dataframe che gli hai fornito
+    ha solo due colonne, quindi presuppone che tu voglia plottare una variabile
+    rispetto all'altra.
 - Class: text
-  Output: In secondo luogo, poiché non forniamo etichette per nessuno degli assi,
-    R usa i nomi delle colonne. In terzo luogo, crea segni di graduazione dell'asse
-    su bei numeri tondi e li etichetta di conseguenza. In quarto luogo, utilizza gli
-    altri valori predefiniti forniti in plot().
+  Output: In secondo luogo, poiché non abbiamo fornito etichette per nessuno degli assi,
+    R ha usato i nomi delle colonne. In terzo luogo, ha creato una scala con etichette dell'asse
+    con dei bei numeri tondi. Infine, utilizza glialtri valori predefiniti 
+    forniti in plot().
 - Class: text
-  Output: Dedicheremo ora un po' di tempo all'esplorazione della trama, ma molti degli
+  Output: Dedicheremo ora un po' di tempo all'esplorazione di plot, ma molti degli
     argomenti qui trattati si applicheranno alla maggior parte delle altre funzioni
-    grafiche R. Si noti che "plot" è l'abbreviazione di scatterplot.
+    grafiche di base di R. Si noti che "plot" è l'abbreviazione di scatterplot.
 - Class: cmd_question
   Output: Cerca la pagina di aiuto per plot().
   CorrectAnswer: ?plot
@@ -71,11 +71,11 @@
   Output: La pagina di aiuto per plot() evidenzia i diversi argomenti che la funzione
     può accettare. Le due più importanti sono x e y, le variabili che verranno tracciate.
     Per la prossima serie di domande, includi i nomi degli argomenti nelle tue risposte.
-    Cioè, non digitare plot(cars$speed, cars$dist), anche se funzionerà. Invece, usa
+    Cioè, non digitare plot(cars$speed, cars$dist), anche se funzionerebbe. Invece, usa
     plot(x = cars$speed, y = cars$dist).
 - Class: cmd_question
   Output: Usa il comando plot() per mostrare la velocità sull'asse x e la distanza
-    sull'asse y dal data frame dell'auto. Utilizzare la forma del comando plot in
+    sull'asse y dal data frame cars. Utilizzare la forma del comando plot in
     cui i vettori vengono esplicitamente passati come argomenti per x e y.
   CorrectAnswer: plot(x = cars$speed, y = cars$dist)
   AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist)')
@@ -83,13 +83,12 @@
 - Class: text
   Output: Nota che questo produce una risposta leggermente diversa da plot(cars).
     In questo caso, R non è sicuro di cosa si desidera utilizzare come etichette sugli
-    assi, quindi utilizza solo gli argomenti che si passano, il nome del frame di
-    dati e i simboli del dollaro inclusi.
+    assi, quindi utilizza solo gli argomenti che si passano, il nome del dataframe, 
+    inclusi i simboli del dollaro.
 - Class: text
-  Output: Nota che ci sono altri modi per chiamare il comando plot, cioè usando l'interfaccia
+  Output: Nota che ci sono altri modi passare gli argomenti al comando plot, cioè usando l'interfaccia
     "formula". Ad esempio, otteniamo un grafico simile al precedente con plot(dist
-    ~ speed, cars). Tuttavia, aspetteremo più avanti nella lezione prima di utilizzare
-    l'interfaccia della formula.
+    ~ speed, cars). Però utilizzeremo solo più avanti nella lezione l'interfaccia a formula.
 - Class: cmd_question
   Output: Usa il comando plot() per mostrare la distanza sull'asse x e la velocità
     sull'asse y dal data frame dell'auto. Questo è l'opposto di quello che abbiamo
@@ -104,73 +103,70 @@
     di conseguenza.
 - Class: text
   Output: Infatti, puoi presumere che le risposte alle prossime domande siano tutte
-    nella forma plot(x = cars$speed, y = cars$dist, ...) ma con vari argomenti usati
+    nella forma plot(x = cars$speed, y = cars$dist, ...) ma con vari argomenti impostati
     al posto del ...
 - Class: cmd_question
   Output: Ricrea il grafico con l'etichetta dell'asse x impostata su "Velocità".
-  CorrectAnswer: plot(x = cars$speed, y = cars$dist, xlab = "Speed")
-  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, xlab = "Speed")')
-  Hint: Digita plot(x = cars$speed, y = cars$dist, xlab = "Speed") per creare il grafico.
+  CorrectAnswer: plot(x = cars$speed, y = cars$dist, xlab = "Velocità")
+  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, xlab = "Velocità")')
+  Hint: Digita plot(x = cars$speed, y = cars$dist, xlab = "Velocità") per creare il grafico.
 - Class: cmd_question
-  Output: Ricrea il grafico con l'etichetta dell'asse y impostata su "Distanza di
-    arresto".
-  CorrectAnswer: plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance")
-  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, ylab = "Stopping
-    Distance")')
-  Hint: Digita plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance") per
+  Output: Ricrea il grafico con l'etichetta dell'asse y impostata su "Distanza di arresto".
+  CorrectAnswer: plot(x = cars$speed, y = cars$dist, ylab = "Distanza di arresto")
+  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, ylab = "Distanza di arresto")')
+  Hint: Digita plot(x = cars$speed, y = cars$dist, ylab = "Distanza di arresto") per
     creare il grafico.
 - Class: cmd_question
   Output: Ricrea il grafico con "Velocità" e "Distanza di arresto" come etichette
     degli assi.
-  CorrectAnswer: plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping
-    Distance")
-  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, xlab = "Speed",
-    ylab = "Stopping Distance")')
-  Hint: Digita plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping
+  CorrectAnswer: plot(x = cars$speed, y = cars$dist, xlab = "Velocità", ylab = "Distanza di arresto")
+  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, xlab = "Velocità",
+    ylab = "Distanza di arresto")')
+  Hint: Digita plot(x = cars$speed, y = cars$dist, xlab = "Velocità", ylab = "Stopping
     Distance") per creare il grafico.
 - Class: text
   Output: Il motivo per cui plots(cars) funzionava all'inizio della lezione era che
     R era abbastanza intelligente da sapere che il primo elemento (cioè la prima colonna)
     in cars doveva essere assegnato all'argomento x e il secondo elemento all'argomento
-    y . Per risparmiare sulla digitazione, la prossima serie di risposte sarà tutta
-    nella forma, trama (automobili, ...) con vari argomenti aggiunti.
+    y . Per risparmiare tempo sulla digitazione, la prossima serie di risposte sarà tutta
+    nella forma plot(cars, ...) con vari argomenti aggiunti.
 - Class: text
-  Output: Per ogni domanda, vorremo solo un argomento aggiuntivo alla volta. Naturalmente,
-    puoi passare più di un argomento quando fai un vero progetto.
+  Output: Per ogni domanda, aggiungeremo solo un argomento alla volta. Naturalmente,
+    puoi passare più di un argomento quando lavori a un progetto reale.
 - Class: cmd_question
-  Output: Traccia auto con un titolo principale di "My Plot". Si noti che l'argomento
-    per il titolo principale è "principale" e non "titolo".
-  CorrectAnswer: plot(cars, main = "My Plot")
-  AnswerTests: omnitest(correctExpr='plot(cars, main = "My Plot")')
-  Hint: Digita plot(cars, main = "My Plot") per creare la trama.
+  Output: Plotta cars con un titolo principale di "Mio grafico". Si noti che l'argomento
+    per il titolo principale è "main" e non "title".
+  CorrectAnswer: plot(cars, main = "Mio grafico")
+  AnswerTests: omnitest(correctExpr='plot(cars, main = "Mio grafico")')
+  Hint: Digita plot(cars, main = "Mio grafico") per creare il grafico.
 - Class: cmd_question
-  Output: Traccia le auto con un sottotitolo di "My Plot Subtitle".
-  CorrectAnswer: plot(cars, sub = "My Plot Subtitle")
-  AnswerTests: omnitest(correctExpr='plot(cars, sub = "My Plot Subtitle")')
-  Hint: Digita plot(cars, sub = "My Plot Subtitle") per creare la trama.
+  Output: Plotta cars con un sottotitolo di "Sottotitolo del mio grafico".
+  CorrectAnswer: plot(cars, sub = "Sottotitolo del mio grafico")
+  AnswerTests: omnitest(correctExpr='plot(cars, sub = "Sottotitolo del mio grafico")')
+  Hint: Digita plot(cars, sub = "Sottotitolo del mio grafico") per creare la trama.
 - Class: text
-  Output: La pagina della guida alla trama (?plot) copre solo un piccolo numero dei
-    numerosi argomenti che possono essere passati a plot() e ad altre funzioni grafiche.
+  Output: La pagina della guida di plot (?plot) copre solo una piccola parte dei 
+    numerosi argomenti che possono essere passati a plot() ed alle altre funzioni grafiche.
     Per iniziare a esplorare le molte altre opzioni, guarda ?par. Diamo un'occhiata
     ad alcuni di quelli più comunemente usati. Continua a usare plot(cars, ...) come
-    risposta di base a queste domande.
+    base per la risposta a queste domande.
 - Class: cmd_question
-  Output: Traccia le auto in modo che i punti tracciati siano colorati di rosso. (Usa
+  Output: Plotta cars in modo che i punti siano colorati di rosso. (Usa
     col = 2 per ottenere questo effetto.)
   CorrectAnswer: plot(cars, col = 2)
   AnswerTests: omnitest(correctExpr='plot(cars, col = 2)')
   Hint: Digita plot(cars, col = 2) per creare il grafico.
 - Class: cmd_question
-  Output: Traccia le auto limitando l'asse x da 10 a 15. (Usa xlim = c(10, 15) per
+  Output: Plotta cars limitando l'asse x da 10 a 15. (Usa xlim = c(10, 15) per
     ottenere questo effetto.)
   CorrectAnswer: plot(cars, xlim = c(10, 15))
   AnswerTests: omnitest(correctExpr='plot(cars, xlim = c(10, 15))')
   Hint: Digita plot(cars, xlim = c(10, 15)) per creare il grafico.
 - Class: text
-  Output: Puoi anche cambiare la forma dei simboli nella trama. La pagina della guida
+  Output: Puoi anche cambiare la forma dei simboli del plot. La pagina della guida
     per i punti (?points) fornisce i dettagli.
 - Class: cmd_question
-  Output: Traccia le auto usando i triangoli. (Usa pch = 2 per ottenere questo effetto.)
+  Output: Plotta cars usando i triangoli. (Usa pch = 2 per ottenere questo effetto.)
   CorrectAnswer: plot(cars, pch = 2)
   AnswerTests: omnitest(correctExpr='plot(cars, pch = 2)')
   Hint: Digita plot(cars, pch = 2) per creare il grafico.
@@ -179,13 +175,13 @@
     questo perché non lo sono! Quindi, molte/la maggior parte delle persone usa pacchetti
     più moderni, come ggplot2, per creare la propria grafica in R.
 - Class: text
-  Output: È, tuttavia, utile avere un'introduzione alla grafica di base perché molti
-    degli idiomi in reticolo e ggplot2 sono modellati su di essi.
+  Output: È, tuttavia, utile avere un'introduzione alla grafica di base perché molta
+    della terminologia in lattice e ggplot2 si basano su di essi.
 - Class: text
   Output: Diamo ora un'occhiata ad alcune altre funzioni nella grafica di base che
     possono essere utili, a partire dai boxplot.
 - Class: cmd_question
-  Output: Carica il data frame mtcars.
+  Output: Carica il dataframe mtcars.
   CorrectAnswer: data(mtcars)
   AnswerTests: omnitest(correctExpr='data(mtcars)')
   Hint: Digitare data(mtcars) per caricare i dati.
@@ -194,7 +190,7 @@
     di usarlo. Nel bel mezzo di una lezione di swirl, basta digitare play(). Questo
     sospende temporaneamente la lezione (senza perdere il lavoro che hai già fatto)
     e ti permette di impartire comandi come dim(mtcars) e head(mtcars). Una volta
-    che hai finito di esaminare i dati, digita semplicemente nxt() e la lezione riprenderà
+    che hai finito di esplorare i dati, digita semplicemente nxt() e la lezione riprenderà
     da dove era stata interrotta.
 - Class: cmd_question
   Output: Cerca la pagina di aiuto per boxplot().
@@ -204,7 +200,7 @@
     dettagli sul boxplot.
 - Class: text
   Output: Invece di aggiungere colonne di dati direttamente come argomenti di input,
-    come abbiamo fatto con plot(), è spesso utile passare l'intero frame di dati.
+    come abbiamo fatto con plot(), è spesso utile passare l'intero dataframe.
     Questo è ciò che consente l'argomento "data" in boxplot().
 - Class: text
   Output: boxplot(), come molte funzioni R, accetta anche un argomento "formula",
@@ -233,9 +229,9 @@
   Hint: Digita hist(mtcars$mpg) per creare il grafico.
 - Class: text
   Output: In questa lezione, hai imparato a lavorare con la grafica di base in R.
-    Il posto migliore dove andare da qui è studiare il pacchetto ggplot2. Se vuoi
+    Adesso l'opzione migliore è studiare studiare anche il pacchetto ggplot2. Se vuoi
     esplorare altri elementi della grafica di base, allora questa pagina web (http://www.ling.upenn.edu/~joseff/rstudy/week4.html)
-    fornisce un'utile panoramica.
+    fornisce una panoramica utile.
 - Class: mult_question
   Output: Vuoi informare qualcuno del completamento con successo di questa lezione
     via e-mail?

@@ -11,7 +11,7 @@
     loop.
 - Class: text
   Output: Queste potenti funzioni, insieme ai loro parenti stretti (vapply() e tapply(),
-    tra gli altri) offrono un mezzo conciso e conveniente per implementare la strategia
+    tra gli altri) offrono un mezzo semplice e utile per implementare la strategia
     Split-Apply-Combine per l'analisi dei dati.
 - Class: text
   Output: Ognuna delle funzioni *apply DIVIDE alcuni dati in parti più piccole, APPLICA
@@ -22,7 +22,7 @@
 - Class: text
   Output: 'In questa lezione useremo il set di dati Flags dal repository di Machine
     Learning UCI. Questo set di dati contiene i dettagli di varie nazioni e le loro
-    bandiere. Maggiori informazioni possono essere trovate qui: http://archive.ics.uci.edu/ml/datasets/Flags'
+    bandiere. Maggiori informazioni sono disponibili qui: http://archive.ics.uci.edu/ml/datasets/Flags'
 - Class: text
   Output: Partiamo subito in modo che tu possa avere un'idea di come funzionano queste
     funzioni speciali!
@@ -48,7 +48,7 @@
 - Class: cmd_question
   Output: Come con qualsiasi set di dati, vorremmo sapere in quale formato sono state
     memorizzate le variabili. In altre parole, qual è la "classe" di ciascuna variabile?
-    Cosa succede se facciamo classe (flag)? Provalo.
+    Cosa succede se facciamo class(flag)? Provalo.
   CorrectAnswer: class(flags)
   AnswerTests: omnitest(correctExpr='class(flags)')
   Hint: Digita class(flags) per vedere cosa succede.
@@ -57,7 +57,7 @@
     il che non risponde alla nostra domanda. Ciò di cui abbiamo veramente bisogno
     è chiamare la funzione class() su ogni singola colonna. Mentre potremmo farlo
     manualmente (cioè una colonna alla volta) è molto più veloce se possiamo automatizzare
-    il processo. Sembra un loop!
+    il processo. Come in un loop!
 - Class: text
   Output: La funzione lapply() accetta una lista come input, applica una funzione
     a ciascun elemento della lista, quindi restituisce una lista della stessa lunghezza
@@ -68,7 +68,7 @@
   Output: Digitare cls_list <- lapply(flags, class) per applicare la funzione class()
     a ciascuna colonna del set di dati flags e archiviare il risultato in una variabile
     denominata cls_list. Nota che devi solo fornire il nome della funzione che vuoi
-    applicare (cioè classe), senza le solite parentesi dopo di essa.
+    applicare (cioè class), senza le solite parentesi dopo di essa.
   CorrectAnswer: cls_list <- lapply(flags, class)
   AnswerTests: omnitest(correctExpr='cls_list <- lapply(flags, class)')
   Hint: Digita cls_list <- lapply(flags, class) per applicare la funzione class()
@@ -81,7 +81,7 @@
   Hint: Digita cls_list per visualizzare il risultato.
 - Class: cmd_question
   Output: La 'l' in 'lapply' sta per 'list'. Digita class(cls_list) per confermare
-    che lapply() ha restituito una lista.
+    che lapply() abbia restituito una lista.
   CorrectAnswer: class(cls_list)
   AnswerTests: omnitest(correctExpr='class(cls_list)')
   Hint: Digita class(cls_list) per confermare che lapply() ha restituito una lista.
@@ -146,7 +146,7 @@
     dice a R che vogliamo tutte le righe, ma solo le colonne da 11 a 17.)
   CorrectAnswer: flag_colors <- flags[, 11:17]
   AnswerTests: omnitest(correctExpr='flag_colors <- flags[, 11:17]')
-  Hint: flag_colors <- flags[, 11:17] farà il lavoro!
+  Hint: flag_colors <- flags[, 11:17] eseguirà l'operazione!
 - Class: cmd_question
   Output: Usa la funzione head() per guardare le prime 6 righe di flag_colors.
   CorrectAnswer: head(flag_colors)
@@ -184,7 +184,7 @@
     il nome della funzione (cioè media) che vuoi applicare.
   CorrectAnswer: sapply(flag_colors, mean)
   AnswerTests: omnitest(correctExpr='sapply(flag_colors, mean)')
-  Hint: sapply(flag_colors, mean) farà il trucco!
+  Hint: sapply(flag_colors, mean) farà l'operazione!
 - Class: text
   Output: Negli esempi che abbiamo visto finora, sapply() è stato in grado di semplificare
     il risultato in vettoriale. Questo perché ogni elemento della lista restituito
@@ -259,13 +259,13 @@
   AnswerTests: any_of_exprs('unique_vals', 'print(unique_vals)')
   Hint: Digita unique_vals per visualizzarne il contenuto.
 - Class: cmd_question
-  Output: 'Poiché unique_vals è un elenco, puoi utilizzare ciò che hai imparato per
+  Output: 'Poiché unique_vals è una lista, puoi utilizzare ciò che hai imparato per
     determinare la lunghezza di ciascun elemento di unique_vals (ovvero il numero
     di valori univoci per ciascuna variabile). Semplifica il risultato, se possibile.
     Suggerimento: applica la funzione length() a ogni elemento di unique_vals.'
   CorrectAnswer: sapply(unique_vals, length)
   AnswerTests: omnitest(correctExpr='sapply(unique_vals, length)')
-  Hint: Applicare la funzione length() a ciascun elemento dell'elenco unique_vals
+  Hint: Applicare la funzione length() a ciascun elemento della lista unique_vals
     utilizzando sapply(). Ricorda, nessuna parentesi dopo il nome della funzione che
     stai applicando (es. lunghezza).
 - Class: text
@@ -304,8 +304,8 @@
   Output: L'unica differenza tra gli esempi precedenti e questo è che stiamo definendo
     e usando la nostra funzione direttamente nella chiamata a lapply(). La nostra
     funzione non ha nome e scompare non appena lapply() ha finito di usarla. Le cosiddette
-    "funzioni anonime" possono essere molto utili quando una delle funzioni integrate
-    di R non è un'opzione.
+    "funzioni anonime" possono essere molto utili quando non è disponibile una delle 
+    funzioni integrate di R.
 - Class: text
   Output: In questa lezione hai imparato come utilizzare le potenti funzioni lapply()
     e sapply() per applicare un'operazione sugli elementi di una lista. Nella prossima

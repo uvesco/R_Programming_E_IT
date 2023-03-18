@@ -14,7 +14,7 @@
   Output: Le date sono rappresentate dalla classe 'Date' e le ore sono rappresentate
     dalle classi 'POSIXct' e 'POSIXlt'. Internamente, le date sono memorizzate come
     il numero di giorni dal 1970-01-01 e le ore sono memorizzate come il numero di
-    secondi dal 1970-01-01 (per 'POSIXct') o un elenco di secondi, minuti, ore, ecc.
+    secondi dal 1970-01-01 (per 'POSIXct') o una lista di secondi, minuti, ore, ecc.
     (per 'POSIXlt').
 - Class: cmd_question
   Output: Iniziamo usando d1 <- Sys.Date() per ottenere la data corrente e salvarla
@@ -87,10 +87,10 @@
 - Class: cmd_question
   Output: Per impostazione predefinita, Sys.time() restituisce un oggetto di classe
     POSIXct, ma possiamo costringere il risultato a POSIXlt con as.POSIXlt(Sys.time()).
-    Fai un tentativo e memorizza il risultato in t2.
+    Prova e memorizza il risultato in t2.
   CorrectAnswer: t2 <- as.POSIXlt(Sys.time())
   AnswerTests: omnitest(correctExpr='t2 <- as.POSIXlt(Sys.time())')
-  Hint: t2 <- as.POSIXlt(Sys.time()) costringerà il risultato di Sys.time a 'POSIXlt'
+  Hint: t2 <- as.POSIXlt(Sys.time()) forzerà il risultato di Sys.time a 'POSIXlt'
     e memorizzerà il risultato.
 - Class: cmd_question
   Output: Controlla la classe di t2.
@@ -103,13 +103,13 @@
   AnswerTests: omnitest(correctExpr='t2')
   Hint: Digitare t2 per visualizzarne il contenuto.
 - Class: cmd_question
-  Output: Il formato stampato di t2 è identico a quello di t1. Ora unclass() t2 per
+  Output: Il formato stampato di t2 è identico a quello di t1. Ora prova unclass() t2 per
     vedere come è diverso internamente.
   CorrectAnswer: unclass(t2)
   AnswerTests: omnitest(correctExpr='unclass(t2)')
   Hint: Usa unclass(t2) per visualizzare la sua struttura interna.
 - Class: cmd_question
-  Output: t2, come tutti gli oggetti POSIXlt, è solo un elenco di valori che compongono
+  Output: t2, come tutti gli oggetti POSIXlt, è solo una lista di valori che compongono
     la data e l'ora. Usa str(unclass(t2)) per avere una vista più compatta.
   CorrectAnswer: str(unclass(t2))
   AnswerTests: omnitest(correctExpr='str(unclass(t2))')
@@ -117,7 +117,7 @@
     più compatto.
 - Class: cmd_question
   Output: Se, ad esempio, vogliamo solo i minuti dall'ora memorizzata in t2, possiamo
-    accedervi con t2$min. Provaci.
+    accedervi con t2$min. Prova.
   CorrectAnswer: t2$min
   AnswerTests: omnitest(correctExpr='t2$min')
   Hint: t2$min ti darà il numero di minuti dal tempo memorizzato in t2.
@@ -127,7 +127,7 @@
     di questi oggetti: weekdays(), months() e quarters().'
 - Class: cmd_question
   Output: La funzione weekdays() restituirà il giorno della settimana da qualsiasi
-    oggetto data o ora. Provalo su d1, che è l'oggetto Date che contiene la data odierna.
+    oggetto data e ora. Provalo su d1, che è l'oggetto data che contiene la data odierna.
   CorrectAnswer: weekdays(d1)
   AnswerTests: omnitest(correctExpr='weekdays(d1)')
   Hint: Prova weekdays(d1) per ottenere il giorno della settimana.

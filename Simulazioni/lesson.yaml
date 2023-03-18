@@ -13,7 +13,7 @@
   Output: Questa lezione presuppone la familiarità con alcune comuni distribuzioni
     di probabilità, ma questi argomenti saranno discussi solo rispetto alla generazione
     di numeri casuali. Anche se non hai alcuna esperienza precedente con questi concetti,
-    dovresti essere in grado di completare la lezione e comprendere le idee principali.
+    dovresti essere in grado di completare la lezione e comprendere i concetti principali.
 - Class: cmd_question
   Output: La prima funzione che useremo per generare numeri casuali è sample(). Usa
     ?sample per recuperare la documentazione.
@@ -74,8 +74,8 @@
     Questa particolare moneta ha una probabilità di 0,3 di ottenere "croce" e una
     probabilità di 0,7 di ottenere "testa".
 - Class: cmd_question
-  Output: Lascia che il valore 0 rappresenti le code e il valore 1 rappresenti le
-    teste. Usa sample() per disegnare un campione di dimensione 100 dal vettore c(0,1),
+  Output: Lascia che il valore 0 rappresenti croce e il valore 1 rappresenti testa. 
+    Usa sample() per disegnare un campione di dimensione 100 dal vettore c(0,1),
     con sostituzione. Poiché la moneta è sleale, dobbiamo attribuire probabilità specifiche
     ai valori 0 (croce) e 1 (testa) con un quarto argomento, prob = c(0.3, 0.7). Assegna
     il risultato a una nuova variabile chiamata flips.
