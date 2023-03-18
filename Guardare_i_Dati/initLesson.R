@@ -7,7 +7,7 @@
 
 # Path to data
 .datapath <- file.path(.get_course_path(),
-                      'R_Programming_E', 'Looking_at_Data',
+                      'R_Programming_E_IT', 'Guardare_i_Dati',
                       'plant-data.txt')
 # Read in data
 plants <- read.csv(.datapath, strip.white=TRUE, na.strings="")
@@ -21,3 +21,7 @@ names(plants) <- c('Scientific_Name', 'Duration', 'Active_Growth_Period',
                    'Foliage_Color', 'pH_Min', 'pH_Max',
                    'Precip_Min', 'Precip_Max',
                    'Shade_Tolerance', 'Temp_Min_F')
+# Converts to factor
+for(i in c("Duration", "Active_Growth_Period", "Foliage_Color", "Shade_Tolerance")){
+  plants[, i] <- as.factor(plants[, i])
+}
