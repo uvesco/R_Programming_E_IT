@@ -226,7 +226,7 @@
   AnswerTests: omnitest(correctExpr='c(1, 2, 3, 4) + c(0, 10, 100)')
   Hint: 'Digitate c(1, 2, 3, 4) + c(0, 10, 100)  per vedere come R gestisce la somma di due vettori,
     quando la lunghezza del vettore più lungo non è divisibile per la lunghezza del vettore più lungo.
-    Non preoccuparti di assegnare il risultato a un oggetto.'
+    Non preoccuparti di assegnare il risultato a un oggetto.' 
 
 - Class: text
   Output: Prima di concludere questa lezione, vorrei mostrarvi un paio di trucchi
