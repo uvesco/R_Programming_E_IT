@@ -224,9 +224,9 @@
   Output: Provate c(1, 2, 3, 4) + c(0, 10, 100) per esempio.
   CorrectAnswer: c(1, 2, 3, 4) + c(0, 10, 100)
   AnswerTests: omnitest(correctExpr='c(1, 2, 3, 4) + c(0, 10, 100)')
-  Hint: 'Digitate c(1, 2, 3, 4) + c(0, 10, 100) to see how R handles adding two vectors,
-    when the shorter vector''s length does not divide evenly into the longer vector''s
-    length. Don''t worry about assigning the result to a variable.'
+  Hint: 'Digitate c(1, 2, 3, 4) + c(0, 10, 100)  per vedere come R gestisce la somma di due vettori,
+    quando la lunghezza del vettore più lungo non è divisibile per la lunghezza del vettore più lungo.
+    Non preoccuparti di assegnare il risultato a un oggetto.'
 
 - Class: text
   Output: Prima di concludere questa lezione, vorrei mostrarvi un paio di trucchi
